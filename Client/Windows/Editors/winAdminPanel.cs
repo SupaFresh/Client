@@ -53,6 +53,7 @@ namespace Client.Logic.Windows.Editors
         TextBox txtPlayerName;
         Label lblSpriteNumber;
         TextBox txtSpriteNumber;
+        CheckBox chkIsShiny;
         Label lblAccessLevel;
         Label lblMapNumber;
         TextBox txtMapNumber;
@@ -187,7 +188,7 @@ namespace Client.Logic.Windows.Editors
             btnSetAccess.Click += new EventHandler<MouseButtonEventArgs>(btnSetAccess_Click);
 
             cbAccessLevel = new ComboBox("cbAccessLevel");
-            cbAccessLevel.Location = new Point(174, 274);
+            cbAccessLevel.Location = new Point(174, 295);
             cbAccessLevel.Size = new System.Drawing.Size(134, 18);
             cbAccessLevel.BackColor = Color.DarkGray;
             for (int i = 0; i < 7; i++)
@@ -251,7 +252,7 @@ namespace Client.Logic.Windows.Editors
 
             lblSpriteNumber = new Label("lblSpriteNumber");
             lblSpriteNumber.Font = Graphics.FontManager.LoadFont("tahoma", 10);
-            lblSpriteNumber.Location = new Point(20, 242);
+            lblSpriteNumber.Location = new Point(20, 250);
             lblSpriteNumber.Size = new System.Drawing.Size(134, 32);
             lblSpriteNumber.Text = "Species Number:";
             lblSpriteNumber.Visible = true;
@@ -261,9 +262,15 @@ namespace Client.Logic.Windows.Editors
             txtSpriteNumber.Size = new System.Drawing.Size(134, 18);
             txtSpriteNumber.Visible = true;
 
+            chkIsShiny = new CheckBox("chkIsShiny");
+            chkIsShiny.Location = new Point(174, 274);
+            chkIsShiny.Size = new Size(134, 18);
+            chkIsShiny.Text = "Shiny?";
+            chkIsShiny.Visible = true;
+
             lblAccessLevel = new Label("lblAccessLevel");
             lblAccessLevel.Font = Graphics.FontManager.LoadFont("tahoma", 10);
-            lblAccessLevel.Location = new Point(20, 274);
+            lblAccessLevel.Location = new Point(20, 295);
             lblAccessLevel.Size = new System.Drawing.Size(134, 32);
             lblAccessLevel.Text = "Access Level:";
             lblAccessLevel.Visible = true;
@@ -274,13 +281,13 @@ namespace Client.Logic.Windows.Editors
 
             lblMapNumber = new Label("lblMapNumber");
             lblMapNumber.Font = Graphics.FontManager.LoadFont("tahoma", 10);
-            lblMapNumber.Location = new Point(20, 306);
+            lblMapNumber.Location = new Point(20, 330);
             lblMapNumber.Size = new System.Drawing.Size(134, 32);
             lblMapNumber.Text = "Map Number:";
             lblMapNumber.Visible = true;
 
             txtMapNumber = new TextBox("txtMapNumber");
-            txtMapNumber.Location = new Point(174, 315);
+            txtMapNumber.Location = new Point(174, 330);
             txtMapNumber.Size = new System.Drawing.Size(134, 18);
             txtMapNumber.Visible = true;
 
@@ -403,6 +410,7 @@ namespace Client.Logic.Windows.Editors
             pnlPlayerInfo.AddWidget(btnWarpToMe);
             pnlPlayerInfo.AddWidget(lblPlayerName);
             pnlPlayerInfo.AddWidget(txtPlayerName);
+            pnlPlayerInfo.AddWidget(chkIsShiny);
             pnlPlayerInfo.AddWidget(lblSpriteNumber);
             pnlPlayerInfo.AddWidget(txtSpriteNumber);
             pnlPlayerInfo.AddWidget(lblAccessLevel);
@@ -535,7 +543,7 @@ namespace Client.Logic.Windows.Editors
         void btnSetSprite_Click(object sender, SdlDotNet.Widgets.MouseButtonEventArgs e)
         {
             //something to do with txtSpriteNumber
-            Messenger.SetSprite(txtSpriteNumber.Text.ToInt());
+            Messenger.SetSprite(txtSpriteNumber.Text.ToInt(), chkIsShiny.Checked);
         }
 
         void btnWarpMeTo_Click(object sender, SdlDotNet.Widgets.MouseButtonEventArgs e)
@@ -547,7 +555,7 @@ namespace Client.Logic.Windows.Editors
         void btnSetPlayerSprite_Click(object sender, SdlDotNet.Widgets.MouseButtonEventArgs e)
         {
             //Used with txtPlayerName and txtSpriteNumber
-            Messenger.SetPlayerSprite(txtPlayerName.Text, txtSpriteNumber.Text.ToInt());
+            Messenger.SetPlayerSprite(txtPlayerName.Text, txtSpriteNumber.Text.ToInt(), chkIsShiny.Checked);
         }
 
         void btnWarpToMe_Click(object sender, SdlDotNet.Widgets.MouseButtonEventArgs e)

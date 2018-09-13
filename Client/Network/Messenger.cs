@@ -1293,14 +1293,14 @@ namespace Client.Logic.Network
             SendPacket(TcpPacket.CreatePacket("serverupdatecheck"));
         }
 
-        public static void SetSprite(int spriteNum)
+        public static void SetSprite(int spriteNum, bool isShiny)
         {
-            SendPacket(TcpPacket.CreatePacket("setsprite", spriteNum.ToString()));
+            SendPacket(TcpPacket.CreatePacket("setsprite", spriteNum.ToString(), isShiny.ToIntString()));
         }
 
-        public static void SetPlayerSprite(string player, int spriteNum)
+        public static void SetPlayerSprite(string player, int spriteNum, bool isShiny)
         {
-            SendPacket(TcpPacket.CreatePacket("setplayersprite", player, spriteNum.ToString()));
+            SendPacket(TcpPacket.CreatePacket("setplayersprite", player, spriteNum.ToString(), isShiny.ToIntString()));
         }
 
         public static void MapRespawn()

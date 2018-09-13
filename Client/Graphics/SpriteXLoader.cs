@@ -89,9 +89,9 @@ namespace Client.Logic.Graphics
                 {
                     foreach (var entry in zipFile.Entries)
                     {
-                        if (entry.Name.StartsWith("Forms"))
+                        if (entry.FullName.StartsWith("Forms"))
                         {
-                            string formFileName = entry.Name.Substring(6);
+                            string formFileName = entry.FullName.Substring(6);
                             if (!string.IsNullOrEmpty(formFileName))
                             {
                                 string formName = Path.GetDirectoryName(formFileName);
