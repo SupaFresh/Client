@@ -58,6 +58,7 @@ namespace Client.Logic.Updater
                 File.Move(binary, binary + ".ToDelete");
             }
 
+            statusCallback("Extracting files... please wait...");
             using (var fileStream = new FileStream(packageTempFile, System.IO.FileMode.Open))
             {
                 using (var zipArchive = new ZipArchive(fileStream))
@@ -75,7 +76,6 @@ namespace Client.Logic.Updater
                         {
                             try
                             {
-                                statusCallback($"Extracting: {entry.Name}");
                                 using (var entryFileSteam = new FileStream(Path.Combine(baseDirectory, entry.FullName), System.IO.FileMode.Create))
                                 {
                                     using (var entryStream = entry.Open())
