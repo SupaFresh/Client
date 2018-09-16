@@ -76,7 +76,13 @@ namespace Client.Logic.Updater
                             try
                             {
                                 statusCallback($"Extracting: {entry.Name}");
-                                entry.ExtractToFile(Path.Combine(baseDirectory, entry.FullName), true);
+                                using (var entryFileSteam = new FileStream(Path.Combine(baseDirectory, entry.FullName), System.IO.FileMode.Create))
+                                {
+                                    using (var entryStream = entry.Open())
+                                    {
+                                        entryStream.CopyTo(entryFileSteam);
+                                    }
+                                }
                             }
                             catch
                             {
