@@ -32,6 +32,8 @@ namespace Client.Logic.IO
     {
         #region Properties
 
+        public static DateTime LastUpdateTime { get; set; }
+
         /// <summary>
         /// Gets or sets a value indicating whether the client will auto save.
         /// </summary>
@@ -426,6 +428,11 @@ namespace Client.Logic.IO
                                         ActiveSkin = reader.ReadString();
                                     }
                                     break;
+                                case "LastUpdateTime":
+                                    {
+                                        LastUpdateTime = DateTime.FromBinary((long)reader.ReadString().ToUlng());
+                                    }
+                                    break;
                             }
                         }
                     }
@@ -482,6 +489,7 @@ namespace Client.Logic.IO
                 writer.WriteElementString("SpeechBubbles", SpeechBubbles.ToString());
                 writer.WriteElementString("Timestamps", Timestamps.ToString());
                 writer.WriteElementString("ActiveSkin", ActiveSkin);
+                writer.WriteElementString("LastUpdateTime", LastUpdateTime.ToBinary().ToString());
 
                 writer.WriteEndElement();
                 writer.WriteStartElement("ConnectionInfo");

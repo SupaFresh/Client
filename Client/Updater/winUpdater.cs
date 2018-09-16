@@ -25,6 +25,7 @@ using SdlDotNet.Widgets;
 using Client.Logic.Updater.Widgets;
 using PMDCP.Updater.Linker;
 using System.Threading;
+using PMDCP.Updater;
 
 namespace Client.Logic.Updater
 {
@@ -39,23 +40,16 @@ namespace Client.Logic.Updater
         SdlDotNet.Widgets.Timer tmrRestart;
         ProgressBar pgbDownloadProgress;
 
-        UpdateEngine updateEngine;
+        GitHubUpdater updater;
+        GitHubUpdateResult updateResult;
 
-        public UpdateEngine UpdateEngine
-        {
-            get { return updateEngine; }
-            set { updateEngine = value; }
-        }
-
-        public winUpdater(UpdateEngine updateEngine)
+        public winUpdater(GitHubUpdater updater, GitHubUpdateResult updateResult)
             : base("winUpdater")
         {
+            this.updater = updater;
+            this.updateResult = updateResult;
+
             Windows.WindowSwitcher.UpdaterWindow = this;
-            this.updateEngine = updateEngine;
-            this.updateEngine.Updater.StatusUpdated += new EventHandler(Updater_StatusUpdated);
-            this.updateEngine.Updater.PackageDownloadStart += new EventHandler<PMDCP.Updater.PackageDownloadStartEventArgs>(Updater_PackageDownloadStart);
-            this.updateEngine.Updater.PackageInstallationComplete += new EventHandler<PMDCP.Updater.PackageInstallationCompleteEventArgs>(Updater_PackageInstallationComplete);
-            this.updateEngine.Updater.InstallationComplete += new EventHandler(Updater_InstallationComplete);
             this.Windowed = true;
             this.TitleBar.Text = "Updater";
             this.TitleBar.Font = Graphics.FontManager.LoadFont("tahoma", 10);
@@ -72,9 +66,14 @@ namespace Client.Logic.Updater
             packageScroller = new PackageScroller("packageScroller");
             packageScroller.Location = new Point(0, 0);
 
-            for (int i = 0; i < updateEngine.LastCheckResult.PackagesToUpdate.Count; i++)
+            if (updateResult.UpdateAvailable)
             {
-                packageScroller.AddPackage(updateEngine.LastCheckResult.PackagesToUpdate[i]);
+                packageScroller.AddPackage(new PackageInfo()
+                {
+                    Name = "Client",
+                    PublishDate = updateResult.PublishDate,
+                    Size = updateResult.Size
+                });
             }
             packageScroller.PackageButtonSelected += new EventHandler<PackageButtonSelectedEventArgs>(packageScroller_PackageButtonSelected);
 
@@ -164,23 +163,6 @@ namespace Client.Logic.Updater
             Sdl.SdlCore.QuitApplication();
         }
 
-        void Updater_InstallationComplete(object sender, EventArgs e)
-        {
-            UpdateStatus("Update complete! This program will restart in 5...");
-            restartCountdown = 5;
-            tmrRestart.Start();
-        }
-
-        void Updater_PackageInstallationComplete(object sender, PMDCP.Updater.PackageInstallationCompleteEventArgs e)
-        {
-            packageScroller.Buttons[e.PackageIndex].Installed = true;
-            if (updateEngine.LastCheckResult.PackagesToUpdate.Count != e.PackageIndex + 1)
-            {
-                packageScroller.ScrollToButton(e.PackageIndex + 1);
-                LoadPackageInfo(packageScroller.Buttons[e.PackageIndex + 1]);
-            }
-        }
-
         void Updater_PackageDownloadStart(object sender, PMDCP.Updater.PackageDownloadStartEventArgs e)
         {
             lblUpdateFound.Text = "Package: " + e.Package.FullID;
@@ -204,16 +186,23 @@ namespace Client.Logic.Updater
             //UpdateStatus("Downloading: " + PMDCP.Core.IO.Files.GetFileSize(e.Position) + "/" + PMDCP.Core.IO.Files.GetFileSize(e.FileSize) + " (" + e.Percent + "%)");
         }
 
-        void btnAccept_Click(object sender, MouseButtonEventArgs e)
+        async void btnAccept_Click(object sender, MouseButtonEventArgs e)
         {
             btnAccept.Visible = false;
             btnDecline.Visible = false;
             lblStatus.Visible = true;
-            Thread updateThread = new Thread(new ThreadStart(delegate ()
+
+            UpdateStatus("Installing update... please wait...");
+
+            var thread = new Thread(new ThreadStart(async () =>
             {
-                updateEngine.Updater.PerformUpdate(updateEngine.LastCheckResult);
+                await updater.PerformUpdate(updateResult, UpdateStatus);
+
+                UpdateStatus("Update complete! This program will restart in 5...");
+                restartCountdown = 5;
+                tmrRestart.Start();
             }));
-            updateThread.Start();
+            thread.Start();
         }
 
         void btnDecline_Click(object sender, MouseButtonEventArgs e)
@@ -223,7 +212,6 @@ namespace Client.Logic.Updater
 
         void Updater_StatusUpdated(object sender, EventArgs e)
         {
-            UpdateStatus(updateEngine.Updater.Status);
         }
 
         void UpdateStatus(string status)
@@ -238,12 +226,13 @@ namespace Client.Logic.Updater
 
         private void LoadPackageInfo(PackageButton packageButton)
         {
+            packageButton.Text = packageButton.AttachedPackage.Name;
+
             lblUpdateInfo.Text = "";
             CharRenderOptions renderOptions = new CharRenderOptions(Color.Black);
             renderOptions.Bold = true;
-            lblUpdateInfo.AppendText("Package: " + packageButton.AttachedPackage.FullID + "\n", renderOptions);
             lblUpdateInfo.AppendText("Name: " + packageButton.AttachedPackage.Name + "\nSize: " + PMDCP.Core.IO.Files.GetFileSize(packageButton.AttachedPackage.Size) +
-                "\nPublish Date: " + packageButton.AttachedPackage.PublishDate.ToLongDateString() + "\n\nDescription:\n" + packageButton.AttachedPackage.Description, new CharRenderOptions(Color.Black));
+                "\nPublish Date: " + packageButton.AttachedPackage.PublishDate.ToLongDateString(), new CharRenderOptions(Color.Black));
         }
     }
 }
