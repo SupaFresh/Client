@@ -33,6 +33,8 @@ namespace Client.Logic
     using PMDCP.Core;
     using Microsoft.Win32;
     using SharpRaven;
+    using Client.Logic.Updater;
+    using System.Threading.Tasks;
 
     /// <summary>
     /// Loader that will load the game data.
@@ -245,22 +247,33 @@ namespace Client.Logic
 
         private static void DoUpdateCheck()
         {
+
 #if !DEBUG
-            Updater.UpdateEngine updateEngine = new Updater.UpdateEngine("clientpackagekey7wf8ysdch");
-            Thread updateCheckThread = new Thread(new ThreadStart(delegate()
+            Thread updateCheckThread = new Thread(new ThreadStart(async delegate ()
             {
-                try {
-                    DeleteToDeleteFiles();
-                    if (updateEngine.CheckForUpdates()) {
-                        WindowSwitcher.FindWindow("winLoading").Visible = false;
-                        SdlDotNet.Widgets.WindowManager.AddWindow(new Updater.winUpdater(updateEngine));
-                        Windows.WindowSwitcher.UpdaterWindow.AlwaysOnTop = true;
-                    } else {
-                        PostUpdateLoad();
-                    }
-                } catch (Exception ex) {
-                    PostUpdateLoad();
-                }
+                 try
+                 {
+                     var updater = new GitHubUpdater();
+
+                     DeleteToDeleteFiles();
+
+                     var result = await updater.CheckForUpdates();
+
+                     if (result.UpdateAvailable)
+                     {
+                         WindowSwitcher.FindWindow("winLoading").Visible = false;
+                         SdlDotNet.Widgets.WindowManager.AddWindow(new Updater.winUpdater(updater, result));
+                         Windows.WindowSwitcher.UpdaterWindow.AlwaysOnTop = true;
+                     }
+                     else
+                     {
+                         PostUpdateLoad();
+                     }
+                 }
+                 catch (Exception ex)
+                 {
+                     PostUpdateLoad();
+                 }
             }));
             updateCheckThread.Start();
 #else
@@ -282,7 +295,8 @@ namespace Client.Logic
             {
                 winLoading.Close();
                 WindowSwitcher.AddWindow(new winWelcome(PostWelcomeLoad));
-            } else
+            }
+            else
             {
                 PostWelcomeLoad();
             }
