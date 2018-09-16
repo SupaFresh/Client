@@ -278,6 +278,25 @@ namespace Client.Logic
             LoadGuis();
             LoadGraphics();
 
+            if (string.IsNullOrEmpty(IO.Options.ConnectionIP))
+            {
+                winLoading.Close();
+                WindowSwitcher.AddWindow(new winWelcome(PostWelcomeLoad));
+            } else
+            {
+                PostWelcomeLoad();
+            }
+        }
+
+        private static void PostWelcomeLoad()
+        {
+            winLoading winLoading = WindowSwitcher.FindWindow("winLoading") as winLoading;
+            if (winLoading == null)
+            {
+                winLoading = new winLoading();
+                WindowSwitcher.AddWindow(winLoading);
+            }
+
             // TODO: Add encryption key here
             Logic.Globals.Encryption = new Client.Logic.Security.Encryption();
             winLoading.UpdateLoadText("Connecting to server...");

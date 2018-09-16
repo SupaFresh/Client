@@ -500,6 +500,7 @@
     <Compile Include="Windows\winSkinSelector.cs" />
     <Compile Include="Windows\winUpdates.cs" />
     <Compile Include="CompileConstants.cs" Condition="Exists('CompileConstants.cs')" />
+    <Compile Include="Windows\winWelcome.cs" />
     <EmbeddedResource Include="Windows\Editors\ScriptEditor\frmScriptEditor.resx">
       <DependentUpon>frmScriptEditor.cs</DependentUpon>
       <SubType>Designer</SubType>
