@@ -114,7 +114,7 @@ namespace Client.Logic.Windows
             lblLeft.Click += new EventHandler<MouseButtonEventArgs>(lblLeft_Click);
 
             lblRight = new Label("lblRight");
-            lblRight.Location = new Point(300, 32);
+            lblRight.Location = new Point(330, 32);
             lblRight.AutoSize = true;
             lblRight.Font = Graphics.FontManager.LoadFont("PMDCP", 32);
             lblRight.Text = ">";
@@ -188,7 +188,7 @@ namespace Client.Logic.Windows
             lblChatDataSpeechBubbles.Click += new EventHandler<MouseButtonEventArgs>(lblChatDataSpeechBubbles_Click);
 
             lblChatDataTimeStamps = new Label("lblChatDataTimeStamps");
-            lblChatDataTimeStamps.Location = new Point(300, 128);
+            lblChatDataTimeStamps.Location = new Point(400, 128);
             lblChatDataTimeStamps.AutoSize = true;
             lblChatDataTimeStamps.Font = Graphics.FontManager.LoadFont("PMDCP", 32);
             lblChatDataTimeStamps.Text = "TimeStamps: ";
@@ -196,7 +196,7 @@ namespace Client.Logic.Windows
             lblChatDataTimeStamps.Click += new EventHandler<MouseButtonEventArgs>(lblChatDataTimeStamps_Click);
 
             lblChatDataAutoScroll = new Label("lblChatDataAutoScroll");
-            lblChatDataAutoScroll.Location = new Point(130, 152);
+            lblChatDataAutoScroll.Location = new Point(130, 155);
             lblChatDataAutoScroll.AutoSize = true;
             lblChatDataAutoScroll.Font = Graphics.FontManager.LoadFont("PMDCP", 32);
             lblChatDataAutoScroll.Text = "Auto-Scroll: ";
