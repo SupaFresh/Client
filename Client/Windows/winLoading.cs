@@ -49,7 +49,7 @@ namespace Client.Logic.Windows
 
             lblInfo = new Label("lblInfo");
             lblInfo.Font = Gfx.FontManager.LoadFont("PMDCP", 32);
-            lblInfo.Location = new Point(35, 2);
+            lblInfo.Location = new Point(35, 10);
             lblInfo.AutoSize = false;
             lblInfo.AntiAlias = false;
             lblInfo.Size = new Size(230, 32);
