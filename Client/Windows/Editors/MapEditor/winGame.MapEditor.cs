@@ -1750,7 +1750,7 @@ namespace Client.Logic.Windows
                 case "sound":
                     {
                         lstSound.Visible = true;
-                        if (lstSound.SelectedItems.Count == 0)
+                        if (lstSound.SelectedItems.Count == 0 && lstSound.Items.Count > 0)
                         {
                             lstSound.SelectItem(0);
                         }
@@ -1802,7 +1802,7 @@ namespace Client.Logic.Windows
                         txt1.Visible = true;
                         txt2.Visible = true;
                         lstSound.Visible = true;
-                        if (lstSound.SelectedItems.Count == 0)
+                        if (lstSound.SelectedItems.Count == 0 && lstSound.Items.Count > 0)
                         {
                             lstSound.SelectItem(0);
                         }
@@ -3135,7 +3135,10 @@ namespace Client.Logic.Windows
                         data1 = 0;
                         data2 = 0;
                         data3 = 0;
-                        string1 = ((ListBoxTextItem)lstSound.SelectedItems[0]).Text;
+                        if (lstSound.SelectedItems.Count > 0)
+                        {
+                            string1 = ((ListBoxTextItem)lstSound.SelectedItems[0]).Text;
+                        }
                         string2 = "";
                         string3 = "";
                     }
@@ -3159,7 +3162,10 @@ namespace Client.Logic.Windows
                         data3 = 0;
                         string1 = txt1.Text;
                         string2 = txt2.Text;
-                        string3 = ((ListBoxTextItem)lstSound.SelectedItems[0]).Text;
+                        if (lstSound.SelectedItems.Count > 0)
+                        {
+                            string3 = ((ListBoxTextItem)lstSound.SelectedItems[0]).Text;
+                        }
                     }
                     break;
                 case Enums.TileType.LinkShop:
@@ -3631,7 +3637,10 @@ namespace Client.Logic.Windows
                                 tile.Data1 = 0;
                                 tile.Data2 = 0;
                                 tile.Data3 = 0;
-                                tile.String1 = ((ListBoxTextItem)lstSound.SelectedItems[0]).Text;
+                                if (lstSound.SelectedItems.Count > 0)
+                                {
+                                    tile.String1 = ((ListBoxTextItem)lstSound.SelectedItems[0]).Text;
+                                }
                                 tile.String2 = "";
                                 tile.String3 = "";
                             }
@@ -3655,7 +3664,10 @@ namespace Client.Logic.Windows
                                 tile.Data3 = 0;
                                 tile.String1 = txt1.Text;
                                 tile.String2 = txt2.Text;
-                                tile.String3 = ((ListBoxTextItem)lstSound.SelectedItems[0]).Text;
+                                if (lstSound.SelectedItems.Count > 0)
+                                {
+                                    tile.String3 = ((ListBoxTextItem)lstSound.SelectedItems[0]).Text;
+                                }
                             }
                             break;
                         case Enums.TileType.LinkShop:
