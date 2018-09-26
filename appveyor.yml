@@ -21,6 +21,6 @@ deploy:
   description: 'Release'
   provider: GitHub
   auth_token: $(github_release_token)
-  artifact: PMDShift*
+  artifact: PMDShift,PMDShift-NoUpdater
   draft: false
   prerelease: false
