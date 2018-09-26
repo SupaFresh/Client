@@ -6,19 +6,22 @@ branches:
 install:
   - git submodule update --init --recursive
   - nuget restore Client.sln
-configuration: Release
-build:
-  project: Client.sln
-after_build:
+build_script:
+  - msbuild Client.sln /p:Configuration=Release
   - 7z a PMDShift.zip %APPVEYOR_BUILD_FOLDER%\Client\bin\Release\*
+  - msbuild Client.sln /p:Configuration=Release;DisableUpdater=1
+  - 7z a PMDShift-NoUpdater.zip %APPVEYOR_BUILD_FOLDER%\Client\bin\Release\*
+  project: Client.sln
 artifacts:
   - path: PMDShift.zip
     name: PMDShift
+  - path: PMDShift-NoUpdater.zip
+    name: PMDShift-NoUpdater
 deploy:
   release: v$(appveyor_build_version)
   description: 'Release'
   provider: GitHub
   auth_token: $(github_release_token)
-  artifact: PMDShift
+  artifact: PMDShift*
   draft: false
   prerelease: false

@@ -86,6 +86,9 @@
   <PropertyGroup>
     <ApplicationIcon>MDXLogo.ico</ApplicationIcon>
   </PropertyGroup>
+  <PropertyGroup Condition=" '$(DisableUpdater)' == '1' ">
+    <DefineConstants>$(DefineConstants);DISABLEUPDATER</DefineConstants>
+  </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.Targets" />
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
