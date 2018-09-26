@@ -248,7 +248,7 @@ namespace Client.Logic
         private static void DoUpdateCheck()
         {
 
-#if !DEBUG
+#if !DEBUG && !DISABLEUPDATER
             Thread updateCheckThread = new Thread(new ThreadStart(async delegate ()
             {
                  try
