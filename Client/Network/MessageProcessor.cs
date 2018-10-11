@@ -2773,7 +2773,12 @@ namespace Client.Logic.Network
                         WindowSwitcher.ExpKit.KitContainer.ModuleSwitcher.DisableAllModules();
                         for (int i = 0; i < count; i++)
                         {
-                            WindowSwitcher.ExpKit.KitContainer.ModuleSwitcher.FindKitModule((Enums.ExpKitModules)parse[n].ToInt()).Enabled = true;
+                            var kitModule = WindowSwitcher.ExpKit.KitContainer.ModuleSwitcher.FindKitModule((Enums.ExpKitModules)parse[n].ToInt());
+
+                            if (kitModule != null)
+                            {
+                                kitModule.Enabled = true;
+                            }
                             n += 1;
                         }
                         WindowSwitcher.ExpKit.KitContainer.SetActiveModule(0);
