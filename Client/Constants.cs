@@ -26,7 +26,7 @@ namespace Client.Logic
         #region Fields
 
         public const string CLIENT_EDITION = "PMDSCore";
-        public const int CLIENT_VERSION = 5;
+        public const int CLIENT_VERSION = 6;
         public const int FRAME_RATE = 30;
         public const int TILE_WIDTH = 32;
         public const int TILE_HEIGHT = 32;
