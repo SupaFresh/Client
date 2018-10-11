@@ -147,8 +147,14 @@ namespace Client.Logic.Windows
         RadioButton optGround;
         RadioButton optMask;
         RadioButton optMask2;
+        RadioButton optMask3;
+        RadioButton optMask4;
+        RadioButton optMask5;
         RadioButton optFringe;
         RadioButton optFringe2;
+        RadioButton optFringe3;
+        RadioButton optFringe4;
+        RadioButton optFringe5;
         Button btnFill;
         Button btnClear;
         Button btnEyeDropper;
@@ -796,7 +802,7 @@ namespace Client.Logic.Windows
             Skins.SkinManager.LoadButtonGui(btnLayers);
 
             pnlLayers = new Panel("pnlLayers");
-            pnlLayers.Size = new Size(350, 100);
+            pnlLayers.Size = new Size(450, 130);
             pnlLayers.Location = new Point(100, btnLayers.Y + mapEditor_Menu.Y - pnlLayers.Height);
             pnlLayers.BackColor = Color.White;
             pnlLayers.BorderStyle = SdlDotNet.Widgets.BorderStyle.FixedSingle;
@@ -824,29 +830,71 @@ namespace Client.Logic.Windows
             optMask2.Font = Logic.Graphics.FontManager.LoadFont("tahoma", 8);
             optMask2.Text = "Mask 2";
 
+            optMask3 = new RadioButton("optMask3");
+            optMask3.BackColor = Color.Transparent;
+            optMask3.Location = new Point(197, 19);
+            optMask3.Size = new Size(60, 17);
+            optMask3.Font = Logic.Graphics.FontManager.LoadFont("tahoma", 8);
+            optMask3.Text = "Mask 3";
+
+            optMask4 = new RadioButton("optMask4");
+            optMask4.BackColor = Color.Transparent;
+            optMask4.Location = new Point(263, 19);
+            optMask4.Size = new Size(60, 17);
+            optMask4.Font = Logic.Graphics.FontManager.LoadFont("tahoma", 8);
+            optMask4.Text = "Mask 4";
+
+            optMask5 = new RadioButton("optMask5");
+            optMask5.BackColor = Color.Transparent;
+            optMask5.Location = new Point(330, 19);
+            optMask5.Size = new Size(60, 17);
+            optMask5.Font = Logic.Graphics.FontManager.LoadFont("tahoma", 8);
+            optMask5.Text = "Mask 5";
+
             optFringe = new RadioButton("optFringe");
             optFringe.BackColor = Color.Transparent;
-            optFringe.Location = new Point(197, 19);
+            optFringe.Location = new Point(74, 50);
             optFringe.Size = new Size(54, 17);
             optFringe.Font = Logic.Graphics.FontManager.LoadFont("tahoma", 8);
             optFringe.Text = "Fringe";
 
             optFringe2 = new RadioButton("optFringe2");
             optFringe2.BackColor = Color.Transparent;
-            optFringe2.Location = new Point(257, 19);
+            optFringe2.Location = new Point(131, 50);
             optFringe2.Size = new Size(63, 17);
             optFringe2.Font = Logic.Graphics.FontManager.LoadFont("tahoma", 8);
             optFringe2.Text = "Fringe 2";
 
+            optFringe3 = new RadioButton("optFringe3");
+            optFringe3.BackColor = Color.Transparent;
+            optFringe3.Location = new Point(197, 50);
+            optFringe3.Size = new Size(63, 17);
+            optFringe3.Font = Logic.Graphics.FontManager.LoadFont("tahoma", 8);
+            optFringe3.Text = "Fringe 3";
+
+            optFringe4 = new RadioButton("optFringe4");
+            optFringe4.BackColor = Color.Transparent;
+            optFringe4.Location = new Point(263, 50);
+            optFringe4.Size = new Size(63, 17);
+            optFringe4.Font = Logic.Graphics.FontManager.LoadFont("tahoma", 8);
+            optFringe4.Text = "Fringe 4";
+
+            optFringe5 = new RadioButton("optFringe5");
+            optFringe5.BackColor = Color.Transparent;
+            optFringe5.Location = new Point(330, 50);
+            optFringe5.Size = new Size(63, 17);
+            optFringe5.Font = Logic.Graphics.FontManager.LoadFont("tahoma", 8);
+            optFringe5.Text = "Fringe 5";
+
             chkAnim = new CheckBox("chkAnim");
             chkAnim.BackColor = Color.Transparent;
-            chkAnim.Location = new Point(8, 50);
+            chkAnim.Location = new Point(8, 81);
             chkAnim.Size = new Size(70, 17);
             chkAnim.Font = Logic.Graphics.FontManager.LoadFont("tahoma", 8);
             chkAnim.Text = "Animation";
 
             btnFill = new Button("btnFill");
-            btnFill.Location = new Point(8, 70);
+            btnFill.Location = new Point(8, 101);
             btnFill.Size = new System.Drawing.Size(30, 20);
             btnFill.Text = "Fill";
             btnFill.Font = Logic.Graphics.FontManager.LoadFont("tahoma", 8);
@@ -854,7 +902,7 @@ namespace Client.Logic.Windows
             Skins.SkinManager.LoadButtonGui(btnFill);
 
             btnClear = new Button("btnClear");
-            btnClear.Location = new Point(40, 70);
+            btnClear.Location = new Point(40, 101);
             btnClear.Size = new System.Drawing.Size(30, 20);
             btnClear.Text = "Clear";
             btnClear.Font = Logic.Graphics.FontManager.LoadFont("tahoma", 8);
@@ -862,7 +910,7 @@ namespace Client.Logic.Windows
             Skins.SkinManager.LoadButtonGui(btnClear);
 
             btnEyeDropper = new Button("btnEyeDropper");
-            btnEyeDropper.Location = new Point(72, 70);
+            btnEyeDropper.Location = new Point(72, 101);
             btnEyeDropper.Size = new System.Drawing.Size(100, 20);
             btnEyeDropper.Text = "Eye Dropper";
             btnEyeDropper.Click += new EventHandler<MouseButtonEventArgs>(btnEyeDropper_Click);
@@ -871,8 +919,14 @@ namespace Client.Logic.Windows
             pnlLayers.AddWidget(optGround);
             pnlLayers.AddWidget(optMask);
             pnlLayers.AddWidget(optMask2);
+            pnlLayers.AddWidget(optMask3);
+            pnlLayers.AddWidget(optMask4);
+            pnlLayers.AddWidget(optMask5);
             pnlLayers.AddWidget(optFringe);
             pnlLayers.AddWidget(optFringe2);
+            pnlLayers.AddWidget(optFringe3);
+            pnlLayers.AddWidget(optFringe4);
+            pnlLayers.AddWidget(optFringe5);
             pnlLayers.AddWidget(chkAnim);
             pnlLayers.AddWidget(btnFill);
             pnlLayers.AddWidget(btnClear);
@@ -2749,6 +2803,39 @@ namespace Client.Logic.Windows
                     return Enums.LayerType.Mask2Anim;
                 }
             }
+            else if (optMask3.Checked)
+            {
+                if (!chkAnim.Checked)
+                {
+                    return Enums.LayerType.Mask3;
+                }
+                else
+                {
+                    return Enums.LayerType.Mask3Anim;
+                }
+            }
+            else if (optMask4.Checked)
+            {
+                if (!chkAnim.Checked)
+                {
+                    return Enums.LayerType.Mask4;
+                }
+                else
+                {
+                    return Enums.LayerType.Mask4Anim;
+                }
+            }
+            else if (optMask5.Checked)
+            {
+                if (!chkAnim.Checked)
+                {
+                    return Enums.LayerType.Mask5;
+                }
+                else
+                {
+                    return Enums.LayerType.Mask5Anim;
+                }
+            }
             else if (optFringe.Checked)
             {
                 if (!chkAnim.Checked)
@@ -2769,6 +2856,39 @@ namespace Client.Logic.Windows
                 else
                 {
                     return Enums.LayerType.Fringe2Anim;
+                }
+            }
+            else if (optFringe3.Checked)
+            {
+                if (!chkAnim.Checked)
+                {
+                    return Enums.LayerType.Fringe3;
+                }
+                else
+                {
+                    return Enums.LayerType.Fringe3Anim;
+                }
+            }
+            else if (optFringe4.Checked)
+            {
+                if (!chkAnim.Checked)
+                {
+                    return Enums.LayerType.Fringe4;
+                }
+                else
+                {
+                    return Enums.LayerType.Fringe4Anim;
+                }
+            }
+            else if (optFringe5.Checked)
+            {
+                if (!chkAnim.Checked)
+                {
+                    return Enums.LayerType.Fringe5;
+                }
+                else
+                {
+                    return Enums.LayerType.Fringe5Anim;
                 }
             }
             else
@@ -2889,6 +3009,30 @@ namespace Client.Logic.Windows
                     mapViewer.ActiveMap.Tile[x, y].M2AnimSet = set;
                     mapViewer.ActiveMap.Tile[x, y].M2Anim = tile;
                     break;
+                case Enums.LayerType.Mask3:
+                    mapViewer.ActiveMap.Tile[x, y].Mask3Set = set;
+                    mapViewer.ActiveMap.Tile[x, y].Mask3 = tile;
+                    break;
+                case Enums.LayerType.Mask3Anim:
+                    mapViewer.ActiveMap.Tile[x, y].M3AnimSet = set;
+                    mapViewer.ActiveMap.Tile[x, y].M3Anim = tile;
+                    break;
+                case Enums.LayerType.Mask4:
+                    mapViewer.ActiveMap.Tile[x, y].Mask4Set = set;
+                    mapViewer.ActiveMap.Tile[x, y].Mask4 = tile;
+                    break;
+                case Enums.LayerType.Mask4Anim:
+                    mapViewer.ActiveMap.Tile[x, y].M4AnimSet = set;
+                    mapViewer.ActiveMap.Tile[x, y].M4Anim = tile;
+                    break;
+                case Enums.LayerType.Mask5:
+                    mapViewer.ActiveMap.Tile[x, y].Mask5Set = set;
+                    mapViewer.ActiveMap.Tile[x, y].Mask5 = tile;
+                    break;
+                case Enums.LayerType.Mask5Anim:
+                    mapViewer.ActiveMap.Tile[x, y].M5AnimSet = set;
+                    mapViewer.ActiveMap.Tile[x, y].M5Anim = tile;
+                    break;
                 case Enums.LayerType.Fringe:
                     mapViewer.ActiveMap.Tile[x, y].FringeSet = set;
                     mapViewer.ActiveMap.Tile[x, y].Fringe = tile;
@@ -2904,6 +3048,30 @@ namespace Client.Logic.Windows
                 case Enums.LayerType.Fringe2Anim:
                     mapViewer.ActiveMap.Tile[x, y].F2AnimSet = set;
                     mapViewer.ActiveMap.Tile[x, y].F2Anim = tile;
+                    break;
+                case Enums.LayerType.Fringe3:
+                    mapViewer.ActiveMap.Tile[x, y].Fringe3Set = set;
+                    mapViewer.ActiveMap.Tile[x, y].Fringe3 = tile;
+                    break;
+                case Enums.LayerType.Fringe3Anim:
+                    mapViewer.ActiveMap.Tile[x, y].F3AnimSet = set;
+                    mapViewer.ActiveMap.Tile[x, y].F3Anim = tile;
+                    break;
+                case Enums.LayerType.Fringe4:
+                    mapViewer.ActiveMap.Tile[x, y].Fringe4Set = set;
+                    mapViewer.ActiveMap.Tile[x, y].Fringe4 = tile;
+                    break;
+                case Enums.LayerType.Fringe4Anim:
+                    mapViewer.ActiveMap.Tile[x, y].F4AnimSet = set;
+                    mapViewer.ActiveMap.Tile[x, y].F4Anim = tile;
+                    break;
+                case Enums.LayerType.Fringe5:
+                    mapViewer.ActiveMap.Tile[x, y].Fringe5Set = set;
+                    mapViewer.ActiveMap.Tile[x, y].Fringe5 = tile;
+                    break;
+                case Enums.LayerType.Fringe5Anim:
+                    mapViewer.ActiveMap.Tile[x, y].F5AnimSet = set;
+                    mapViewer.ActiveMap.Tile[x, y].F5Anim = tile;
                     break;
             }
         }
@@ -2922,6 +3090,18 @@ namespace Client.Logic.Windows
                     return mapViewer.ActiveMap.Tile[x, y].Mask2Set;
                 case Enums.LayerType.Mask2Anim:
                     return mapViewer.ActiveMap.Tile[x, y].M2AnimSet;
+                case Enums.LayerType.Mask3:
+                    return mapViewer.ActiveMap.Tile[x, y].Mask3Set;
+                case Enums.LayerType.Mask3Anim:
+                    return mapViewer.ActiveMap.Tile[x, y].M3AnimSet;
+                case Enums.LayerType.Mask4:
+                    return mapViewer.ActiveMap.Tile[x, y].Mask4Set;
+                case Enums.LayerType.Mask4Anim:
+                    return mapViewer.ActiveMap.Tile[x, y].M4AnimSet;
+                case Enums.LayerType.Mask5:
+                    return mapViewer.ActiveMap.Tile[x, y].Mask5Set;
+                case Enums.LayerType.Mask5Anim:
+                    return mapViewer.ActiveMap.Tile[x, y].M5AnimSet;
                 case Enums.LayerType.Fringe:
                     return mapViewer.ActiveMap.Tile[x, y].FringeSet;
                 case Enums.LayerType.FringeAnim:
@@ -2930,6 +3110,18 @@ namespace Client.Logic.Windows
                     return mapViewer.ActiveMap.Tile[x, y].Fringe2Set;
                 case Enums.LayerType.Fringe2Anim:
                     return mapViewer.ActiveMap.Tile[x, y].F2AnimSet;
+                case Enums.LayerType.Fringe3:
+                    return mapViewer.ActiveMap.Tile[x, y].Fringe3Set;
+                case Enums.LayerType.Fringe3Anim:
+                    return mapViewer.ActiveMap.Tile[x, y].F3AnimSet;
+                case Enums.LayerType.Fringe4:
+                    return mapViewer.ActiveMap.Tile[x, y].Fringe4Set;
+                case Enums.LayerType.Fringe4Anim:
+                    return mapViewer.ActiveMap.Tile[x, y].F4AnimSet;
+                case Enums.LayerType.Fringe5:
+                    return mapViewer.ActiveMap.Tile[x, y].Fringe5Set;
+                case Enums.LayerType.Fringe5Anim:
+                    return mapViewer.ActiveMap.Tile[x, y].F5AnimSet;
                 default:
                     return 0;
             }
@@ -2951,6 +3143,18 @@ namespace Client.Logic.Windows
                     return mapViewer.ActiveMap.Tile[x, y].Mask2;
                 case Enums.LayerType.Mask2Anim:
                     return mapViewer.ActiveMap.Tile[x, y].M2Anim;
+                case Enums.LayerType.Mask3:
+                    return mapViewer.ActiveMap.Tile[x, y].Mask3;
+                case Enums.LayerType.Mask3Anim:
+                    return mapViewer.ActiveMap.Tile[x, y].M3Anim;
+                case Enums.LayerType.Mask4:
+                    return mapViewer.ActiveMap.Tile[x, y].Mask4;
+                case Enums.LayerType.Mask4Anim:
+                    return mapViewer.ActiveMap.Tile[x, y].M4Anim;
+                case Enums.LayerType.Mask5:
+                    return mapViewer.ActiveMap.Tile[x, y].Mask5;
+                case Enums.LayerType.Mask5Anim:
+                    return mapViewer.ActiveMap.Tile[x, y].M5Anim;
                 case Enums.LayerType.Fringe:
                     return mapViewer.ActiveMap.Tile[x, y].Fringe;
                 case Enums.LayerType.FringeAnim:
@@ -2959,6 +3163,18 @@ namespace Client.Logic.Windows
                     return mapViewer.ActiveMap.Tile[x, y].Fringe2;
                 case Enums.LayerType.Fringe2Anim:
                     return mapViewer.ActiveMap.Tile[x, y].F2Anim;
+                case Enums.LayerType.Fringe3:
+                    return mapViewer.ActiveMap.Tile[x, y].Fringe3;
+                case Enums.LayerType.Fringe3Anim:
+                    return mapViewer.ActiveMap.Tile[x, y].F3Anim;
+                case Enums.LayerType.Fringe4:
+                    return mapViewer.ActiveMap.Tile[x, y].Fringe4;
+                case Enums.LayerType.Fringe4Anim:
+                    return mapViewer.ActiveMap.Tile[x, y].F4Anim;
+                case Enums.LayerType.Fringe5:
+                    return mapViewer.ActiveMap.Tile[x, y].Fringe5;
+                case Enums.LayerType.Fringe5Anim:
+                    return mapViewer.ActiveMap.Tile[x, y].F5Anim;
                 default:
                     return 0;
             }

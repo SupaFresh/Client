@@ -90,7 +90,7 @@ namespace Client.Logic.Maps
                         case "mapdata":
                             {
                                 headerFound = true;
-                                if (parse[1].ToLower() != "v10")
+                                if (parse[1].ToLower() != "v11")
                                 {
                                     System.IO.File.Delete(filePath);
                                     return null;
@@ -181,28 +181,52 @@ namespace Client.Logic.Maps
                                 tile.Anim = parse[6].ToInt();
                                 tile.Mask2 = parse[7].ToInt();
                                 tile.M2Anim = parse[8].ToInt();
-                                tile.Fringe = parse[9].ToInt();
-                                tile.FAnim = parse[10].ToInt();
-                                tile.Fringe2 = parse[11].ToInt();
-                                tile.F2Anim = parse[12].ToInt();
-                                tile.Type = (Enums.TileType)parse[13].ToInt();
-                                tile.Data1 = parse[14].ToInt();
-                                tile.Data2 = parse[15].ToInt();
-                                tile.Data3 = parse[16].ToInt();
-                                tile.String1 = parse[17];
-                                tile.String2 = parse[18];
-                                tile.String3 = parse[19];
-                                tile.RDungeonMapValue = parse[20].ToInt();
-                                tile.GroundSet = parse[21].ToInt();
-                                tile.GroundAnimSet = parse[22].ToInt();
-                                tile.MaskSet = parse[23].ToInt();
-                                tile.AnimSet = parse[24].ToInt();
-                                tile.Mask2Set = parse[25].ToInt();
-                                tile.M2AnimSet = parse[26].ToInt();
-                                tile.FringeSet = parse[27].ToInt();
-                                tile.FAnimSet = parse[28].ToInt();
-                                tile.Fringe2Set = parse[29].ToInt();
-                                tile.F2AnimSet = parse[30].ToInt();
+                                tile.Mask3 = parse[9].ToInt();
+                                tile.M3Anim = parse[10].ToInt();
+                                tile.Mask4 = parse[11].ToInt();
+                                tile.M4Anim = parse[12].ToInt();
+                                tile.Mask5 = parse[13].ToInt();
+                                tile.M5Anim = parse[14].ToInt();
+                                tile.Fringe = parse[15].ToInt();
+                                tile.FAnim = parse[16].ToInt();
+                                tile.Fringe2 = parse[17].ToInt();
+                                tile.F2Anim = parse[18].ToInt();
+                                tile.Fringe3 = parse[19].ToInt();
+                                tile.F3Anim = parse[20].ToInt();
+                                tile.Fringe4 = parse[21].ToInt();
+                                tile.F4Anim = parse[22].ToInt();
+                                tile.Fringe5 = parse[23].ToInt();
+                                tile.F5Anim = parse[24].ToInt();
+                                tile.Type = (Enums.TileType)parse[25].ToInt();
+                                tile.Data1 = parse[26].ToInt();
+                                tile.Data2 = parse[27].ToInt();
+                                tile.Data3 = parse[28].ToInt();
+                                tile.String1 = parse[29];
+                                tile.String2 = parse[30];
+                                tile.String3 = parse[31];
+                                tile.RDungeonMapValue = parse[32].ToInt();
+                                tile.GroundSet = parse[33].ToInt();
+                                tile.GroundAnimSet = parse[34].ToInt();
+                                tile.MaskSet = parse[35].ToInt();
+                                tile.AnimSet = parse[36].ToInt();
+                                tile.Mask2Set = parse[37].ToInt();
+                                tile.M2AnimSet = parse[38].ToInt();
+                                tile.Mask3Set = parse[39].ToInt();
+                                tile.M3AnimSet = parse[40].ToInt();
+                                tile.Mask4Set = parse[41].ToInt();
+                                tile.M4AnimSet = parse[42].ToInt();
+                                tile.Mask5Set = parse[43].ToInt();
+                                tile.M5AnimSet = parse[44].ToInt();
+                                tile.FringeSet = parse[45].ToInt();
+                                tile.FAnimSet = parse[46].ToInt();
+                                tile.Fringe2Set = parse[47].ToInt();
+                                tile.F2AnimSet = parse[48].ToInt();
+                                tile.Fringe3Set = parse[49].ToInt();
+                                tile.F3AnimSet = parse[50].ToInt();
+                                tile.Fringe4Set = parse[51].ToInt();
+                                tile.F4AnimSet = parse[52].ToInt();
+                                tile.Fringe5Set = parse[53].ToInt();
+                                tile.F5AnimSet = parse[54].ToInt();
                                 tile.DoorOpen = false;
                                 map.OriginalTiles[parse[1].ToInt(), parse[2].ToInt()] = (Tile)tile.Clone();
 
@@ -280,31 +304,55 @@ namespace Client.Logic.Maps
                     tile.Anim = parse[n + 3].ToInt();
                     tile.Mask2 = parse[n + 4].ToInt();
                     tile.M2Anim = parse[n + 5].ToInt();
-                    tile.Fringe = parse[n + 6].ToInt();
-                    tile.FAnim = parse[n + 7].ToInt();
-                    tile.Fringe2 = parse[n + 8].ToInt();
-                    tile.F2Anim = parse[n + 9].ToInt();
-                    tile.Type = (Enums.TileType)parse[n + 10].ToInt();
-                    tile.Data1 = parse[n + 11].ToInt();
-                    tile.Data2 = parse[n + 12].ToInt();
-                    tile.Data3 = parse[n + 13].ToInt();
-                    tile.String1 = parse[n + 14];
-                    tile.String2 = parse[n + 15];
-                    tile.String3 = parse[n + 16];
-                    tile.RDungeonMapValue = parse[n + 17].ToInt();
-                    tile.GroundSet = parse[n + 18].ToInt();
-                    tile.GroundAnimSet = parse[n + 19].ToInt();
-                    tile.MaskSet = parse[n + 20].ToInt();
-                    tile.AnimSet = parse[n + 21].ToInt();
-                    tile.Mask2Set = parse[n + 22].ToInt();
-                    tile.M2AnimSet = parse[n + 23].ToInt();
-                    tile.FringeSet = parse[n + 24].ToInt();
-                    tile.FAnimSet = parse[n + 25].ToInt();
-                    tile.Fringe2Set = parse[n + 26].ToInt();
-                    tile.F2AnimSet = parse[n + 27].ToInt();
+                    tile.Mask3 = parse[n + 6].ToInt();
+                    tile.M3Anim = parse[n + 7].ToInt();
+                    tile.Mask4 = parse[n + 8].ToInt();
+                    tile.M4Anim = parse[n + 9].ToInt();
+                    tile.Mask5 = parse[n + 10].ToInt();
+                    tile.M5Anim = parse[n + 11].ToInt();
+                    tile.Fringe = parse[n + 12].ToInt();
+                    tile.FAnim = parse[n + 13].ToInt();
+                    tile.Fringe2 = parse[n + 14].ToInt();
+                    tile.F2Anim = parse[n + 15].ToInt();
+                    tile.Fringe3 = parse[n + 16].ToInt();
+                    tile.F3Anim = parse[n + 17].ToInt();
+                    tile.Fringe4 = parse[n + 18].ToInt();
+                    tile.F4Anim = parse[n + 19].ToInt();
+                    tile.Fringe5 = parse[n + 20].ToInt();
+                    tile.F5Anim = parse[n + 21].ToInt();
+                    tile.Type = (Enums.TileType)parse[n + 22].ToInt();
+                    tile.Data1 = parse[n + 23].ToInt();
+                    tile.Data2 = parse[n + 24].ToInt();
+                    tile.Data3 = parse[n + 25].ToInt();
+                    tile.String1 = parse[n + 26];
+                    tile.String2 = parse[n + 27];
+                    tile.String3 = parse[n + 28];
+                    tile.RDungeonMapValue = parse[n + 29].ToInt();
+                    tile.GroundSet = parse[n + 30].ToInt();
+                    tile.GroundAnimSet = parse[n + 31].ToInt();
+                    tile.MaskSet = parse[n + 32].ToInt();
+                    tile.AnimSet = parse[n + 33].ToInt();
+                    tile.Mask2Set = parse[n + 34].ToInt();
+                    tile.M2AnimSet = parse[n + 35].ToInt();
+                    tile.Mask3Set = parse[n + 36].ToInt();
+                    tile.M3AnimSet = parse[n + 37].ToInt();
+                    tile.Mask4Set = parse[n + 38].ToInt();
+                    tile.M4AnimSet = parse[n + 39].ToInt();
+                    tile.Mask5Set = parse[n + 40].ToInt();
+                    tile.M5AnimSet = parse[n + 41].ToInt();
+                    tile.FringeSet = parse[n + 42].ToInt();
+                    tile.FAnimSet = parse[n + 43].ToInt();
+                    tile.Fringe2Set = parse[n + 44].ToInt();
+                    tile.F2AnimSet = parse[n + 45].ToInt();
+                    tile.Fringe3Set = parse[n + 46].ToInt();
+                    tile.F3AnimSet = parse[n + 47].ToInt();
+                    tile.Fringe4Set = parse[n + 48].ToInt();
+                    tile.F4AnimSet = parse[n + 49].ToInt();
+                    tile.Fringe5Set = parse[n + 50].ToInt();
+                    tile.F5AnimSet = parse[n + 51].ToInt();
                     map.Tile[x, y] = tile;
                     map.OriginalTiles[x, y] = (Tile)tile.Clone();
-                    n += 28;
+                    n += 52;
 
                     // Load tiles into cache
                     tile.GroundGraphic = Logic.Graphics.GraphicsManager.Tiles[tile.GroundSet].GetTileGraphic(tile.Ground);
@@ -313,10 +361,22 @@ namespace Client.Logic.Maps
                     tile.AnimGraphic = Logic.Graphics.GraphicsManager.Tiles[tile.AnimSet].GetTileGraphic(tile.Anim);
                     tile.Mask2Graphic = Logic.Graphics.GraphicsManager.Tiles[tile.Mask2Set].GetTileGraphic(tile.Mask2);
                     tile.M2AnimGraphic = Logic.Graphics.GraphicsManager.Tiles[tile.M2AnimSet].GetTileGraphic(tile.M2Anim);
+                    tile.Mask3Graphic = Logic.Graphics.GraphicsManager.Tiles[tile.Mask2Set].GetTileGraphic(tile.Mask3);
+                    tile.Mask3AnimGraphic = Logic.Graphics.GraphicsManager.Tiles[tile.M2AnimSet].GetTileGraphic(tile.M3Anim);
+                    tile.Mask4Graphic = Logic.Graphics.GraphicsManager.Tiles[tile.Mask2Set].GetTileGraphic(tile.Mask4);
+                    tile.Mask4AnimGraphic = Logic.Graphics.GraphicsManager.Tiles[tile.M2AnimSet].GetTileGraphic(tile.M4Anim);
+                    tile.Mask5Graphic = Logic.Graphics.GraphicsManager.Tiles[tile.Mask2Set].GetTileGraphic(tile.Mask5);
+                    tile.Mask5AnimGraphic = Logic.Graphics.GraphicsManager.Tiles[tile.M2AnimSet].GetTileGraphic(tile.M5Anim);
                     tile.FringeGraphic = Logic.Graphics.GraphicsManager.Tiles[tile.FringeSet].GetTileGraphic(tile.Fringe);
                     tile.FAnimGraphic = Logic.Graphics.GraphicsManager.Tiles[tile.FAnimSet].GetTileGraphic(tile.FAnim);
                     tile.Fringe2Graphic = Logic.Graphics.GraphicsManager.Tiles[tile.Fringe2Set].GetTileGraphic(tile.Fringe2);
                     tile.F2AnimGraphic = Logic.Graphics.GraphicsManager.Tiles[tile.F2AnimSet].GetTileGraphic(tile.F2Anim);
+                    tile.Fringe3Graphic = Logic.Graphics.GraphicsManager.Tiles[tile.Fringe2Set].GetTileGraphic(tile.Fringe3);
+                    tile.Fringe3AnimGraphic = Logic.Graphics.GraphicsManager.Tiles[tile.F2AnimSet].GetTileGraphic(tile.F3Anim);
+                    tile.Fringe4Graphic = Logic.Graphics.GraphicsManager.Tiles[tile.Fringe2Set].GetTileGraphic(tile.Fringe4);
+                    tile.Fringe4AnimGraphic = Logic.Graphics.GraphicsManager.Tiles[tile.F2AnimSet].GetTileGraphic(tile.F4Anim);
+                    tile.Fringe5Graphic = Logic.Graphics.GraphicsManager.Tiles[tile.Fringe2Set].GetTileGraphic(tile.Fringe5);
+                    tile.Fringe5AnimGraphic = Logic.Graphics.GraphicsManager.Tiles[tile.F2AnimSet].GetTileGraphic(tile.F5Anim);
                 }
             }
 
@@ -402,8 +462,6 @@ namespace Client.Logic.Maps
         {
             int n = 3;
 
-
-
             Maps.Tile tile = new Client.Logic.Maps.Tile();
             tile.Ground = parse[n].ToInt();
             tile.GroundAnim = parse[n + 1].ToInt();
@@ -411,28 +469,52 @@ namespace Client.Logic.Maps
             tile.Anim = parse[n + 3].ToInt();
             tile.Mask2 = parse[n + 4].ToInt();
             tile.M2Anim = parse[n + 5].ToInt();
-            tile.Fringe = parse[n + 6].ToInt();
-            tile.FAnim = parse[n + 7].ToInt();
-            tile.Fringe2 = parse[n + 8].ToInt();
-            tile.F2Anim = parse[n + 9].ToInt();
-            tile.Type = (Enums.TileType)parse[n + 10].ToInt();
-            tile.Data1 = parse[n + 11].ToInt();
-            tile.Data2 = parse[n + 12].ToInt();
-            tile.Data3 = parse[n + 13].ToInt();
-            tile.String1 = parse[n + 14];
-            tile.String2 = parse[n + 15];
-            tile.String3 = parse[n + 16];
-            tile.RDungeonMapValue = parse[n + 17].ToInt();
-            tile.GroundSet = parse[n + 18].ToInt();
-            tile.GroundAnimSet = parse[n + 19].ToInt();
-            tile.MaskSet = parse[n + 20].ToInt();
-            tile.AnimSet = parse[n + 21].ToInt();
-            tile.Mask2Set = parse[n + 22].ToInt();
-            tile.M2AnimSet = parse[n + 23].ToInt();
-            tile.FringeSet = parse[n + 24].ToInt();
-            tile.FAnimSet = parse[n + 25].ToInt();
-            tile.Fringe2Set = parse[n + 26].ToInt();
-            tile.F2AnimSet = parse[n + 27].ToInt();
+            tile.Mask3 = parse[n + 6].ToInt();
+            tile.M3Anim = parse[n + 7].ToInt();
+            tile.Mask4 = parse[n + 8].ToInt();
+            tile.M4Anim = parse[n + 9].ToInt();
+            tile.Mask5 = parse[n + 10].ToInt();
+            tile.M5Anim = parse[n + 11].ToInt();
+            tile.Fringe = parse[n + 12].ToInt();
+            tile.FAnim = parse[n + 13].ToInt();
+            tile.Fringe2 = parse[n + 14].ToInt();
+            tile.F2Anim = parse[n + 15].ToInt();
+            tile.Fringe3 = parse[n + 16].ToInt();
+            tile.F3Anim = parse[n + 17].ToInt();
+            tile.Fringe4 = parse[n + 18].ToInt();
+            tile.F4Anim = parse[n + 19].ToInt();
+            tile.Fringe5 = parse[n + 20].ToInt();
+            tile.F5Anim = parse[n + 21].ToInt();
+            tile.Type = (Enums.TileType)parse[n + 22].ToInt();
+            tile.Data1 = parse[n + 23].ToInt();
+            tile.Data2 = parse[n + 24].ToInt();
+            tile.Data3 = parse[n + 25].ToInt();
+            tile.String1 = parse[n + 26];
+            tile.String2 = parse[n + 27];
+            tile.String3 = parse[n + 28];
+            tile.RDungeonMapValue = parse[n + 29].ToInt();
+            tile.GroundSet = parse[n + 30].ToInt();
+            tile.GroundAnimSet = parse[n + 31].ToInt();
+            tile.MaskSet = parse[n + 32].ToInt();
+            tile.AnimSet = parse[n + 33].ToInt();
+            tile.Mask2Set = parse[n + 34].ToInt();
+            tile.M2AnimSet = parse[n + 35].ToInt();
+            tile.Mask3Set = parse[n + 36].ToInt();
+            tile.M3AnimSet = parse[n + 37].ToInt();
+            tile.Mask4Set = parse[n + 38].ToInt();
+            tile.M4AnimSet = parse[n + 39].ToInt();
+            tile.Mask5Set = parse[n + 40].ToInt();
+            tile.M5AnimSet = parse[n + 41].ToInt();
+            tile.FringeSet = parse[n + 42].ToInt();
+            tile.FAnimSet = parse[n + 43].ToInt();
+            tile.Fringe2Set = parse[n + 44].ToInt();
+            tile.F2AnimSet = parse[n + 45].ToInt();
+            tile.Fringe3Set = parse[n + 46].ToInt();
+            tile.F3AnimSet = parse[n + 47].ToInt();
+            tile.Fringe4Set = parse[n + 48].ToInt();
+            tile.F4AnimSet = parse[n + 49].ToInt();
+            tile.Fringe5Set = parse[n + 50].ToInt();
+            tile.F5AnimSet = parse[n + 51].ToInt();
 
             mMaps[Enums.MapID.Active].Tile[parse[1].ToInt(), parse[2].ToInt()] = tile;
             Windows.WindowSwitcher.GameWindow.MapViewer.ActiveMap = mMaps[Enums.MapID.Active];
@@ -456,7 +538,7 @@ namespace Client.Logic.Maps
             string filePath = IO.Paths.CreateOSPath(IO.Paths.MapPath + "Map-" + map.MapID.ToString() + ".dat");
             StringBuilder writer = new StringBuilder();
 
-            writer.AppendLine("MapData|V10|" + map.Revision.ToString() + "|" + map.MaxX.ToString() + "|" + map.MaxY.ToString() + "|");
+            writer.AppendLine("MapData|V11|" + map.Revision.ToString() + "|" + map.MaxX.ToString() + "|" + map.MaxY.ToString() + "|");
             writer.AppendLine("Data|" + map.Name + "|" + ((int)map.Moral).ToString() + "|" + map.Up.ToString() + "|" + map.Down.ToString() + "|" +
                               map.Left.ToString() + "|" + map.Right.ToString() + "|" + map.Music + "|" + map.Indoors.ToString() +
                               "|" + map.Owner + "|" + ((int)map.Weather).ToString() + "|" + map.Darkness.ToString() + "|" +
@@ -479,7 +561,13 @@ namespace Client.Logic.Maps
                 for (int y = 0; y <= map.MaxY; y++)
                 {
                     Tile tile = map.Tile[x, y];
-                    writer.AppendLine("Tile|" + x + "|" + y + "|" + tile.Ground + "|" + tile.GroundAnim + "|" + tile.Mask + "|" + tile.Anim + "|" + tile.Mask2 + "|" + tile.M2Anim + "|" + tile.Fringe + "|" + tile.FAnim + "|" + tile.Fringe2 + "|" + tile.F2Anim + "|" + ((int)tile.Type).ToString() + "|" + tile.Data1 + "|" + tile.Data2 + "|" + tile.Data3 + "|" + tile.String1 + "|" + tile.String2 + "|" + tile.String3 + "|" + tile.RDungeonMapValue + "|" + tile.GroundSet + "|" + tile.GroundAnimSet + "|" + tile.MaskSet + "|" + tile.AnimSet + "|" + tile.Mask2Set + "|" + tile.M2AnimSet + "|" + tile.FringeSet + "|" + tile.FAnimSet + "|" + tile.Fringe2Set + "|" + tile.F2AnimSet + "|");
+                    writer.AppendLine("Tile|" + x + "|" + y + "|" + tile.Ground + "|" + tile.GroundAnim + "|" +
+                        tile.Mask + "|" + tile.Anim + "|" + tile.Mask2 + "|" + tile.M2Anim + "|" + tile.Mask3 + "|" + tile.M3Anim + "|" + tile.Mask4 + "|" + tile.M4Anim + "|" + tile.Mask5 + "|" + tile.M5Anim + "|" +
+                        tile.Fringe + "|" + tile.FAnim + "|" + tile.Fringe2 + "|" + tile.F2Anim + "|" + tile.Fringe3 + "|" + tile.F3Anim + "|" + tile.Fringe4 + "|" + tile.F4Anim + "|" + tile.Fringe5 + "|" + tile.F5Anim + "|" +
+                        ((int)tile.Type).ToString() + "|" + tile.Data1 + "|" + tile.Data2 + "|" + tile.Data3 + "|" + tile.String1 + "|" + tile.String2 + "|" + tile.String3 + "|" + tile.RDungeonMapValue + "|" + 
+                        tile.GroundSet + "|" + tile.GroundAnimSet + "|" + 
+                        tile.MaskSet + "|" + tile.AnimSet + "|" + tile.Mask2Set + "|" + tile.M2AnimSet + "|" + tile.Mask3Set + "|" + tile.M3AnimSet + "|" + tile.Mask4Set + "|" + tile.M4AnimSet + "|" + tile.Mask5Set + "|" + tile.M5AnimSet + "|" +
+                        tile.FringeSet + "|" + tile.FAnimSet + "|" + tile.Fringe2Set + "|" + tile.F2AnimSet + "|" + tile.Fringe3Set + "|" + tile.F3AnimSet + "|" + tile.Fringe4Set + "|" + tile.F4AnimSet + "|" + tile.Fringe5Set + "|" + tile.F5AnimSet + "|");
                 }
             }
 
