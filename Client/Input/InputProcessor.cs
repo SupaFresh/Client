@@ -405,29 +405,6 @@ namespace Client.Logic.Input
                     break;
                 case SdlInput.Key.Return:
                     {
-                        if (PlayerManager.MyPlayer.Y - 1 > -1 && PlayerManager.MyPlayer.X >= 0 && PlayerManager.MyPlayer.X <= Maps.MapHelper.ActiveMap.MaxX && PlayerManager.MyPlayer.Y >= 0 && PlayerManager.MyPlayer.Y <= Maps.MapHelper.ActiveMap.MaxY)
-                        {
-                            if (Maps.MapHelper.ActiveMap.Tile[PlayerManager.MyPlayer.X, PlayerManager.MyPlayer.Y - 1].Type == Enums.TileType.Sign && PlayerManager.MyPlayer.Direction == Enums.Direction.Up)
-                            {
-                                ExpKit.Modules.kitChat chat = (ExpKit.Modules.kitChat)WindowSwitcher.ExpKit.KitContainer.ModuleSwitcher.FindKitModule(Enums.ExpKitModules.Chat);
-                                if (chat != null)
-                                {
-                                    chat.AppendChat("The sign reads:\n", new SdlDotNet.Widgets.CharRenderOptions(Color.Black));
-                                    if (!string.IsNullOrEmpty(Maps.MapHelper.ActiveMap.Tile[PlayerManager.MyPlayer.X, PlayerManager.MyPlayer.Y - 1].String1.Trim()))
-                                    {
-                                        chat.AppendChat(Maps.MapHelper.ActiveMap.Tile[PlayerManager.MyPlayer.X, PlayerManager.MyPlayer.Y - 1].String1.Trim() + "\n", new SdlDotNet.Widgets.CharRenderOptions(Color.Gray));
-                                    }
-                                    if (!string.IsNullOrEmpty(Maps.MapHelper.ActiveMap.Tile[PlayerManager.MyPlayer.X, PlayerManager.MyPlayer.Y - 1].String2.Trim()))
-                                    {
-                                        chat.AppendChat(Maps.MapHelper.ActiveMap.Tile[PlayerManager.MyPlayer.X, PlayerManager.MyPlayer.Y - 1].String2.Trim() + "\n", new SdlDotNet.Widgets.CharRenderOptions(Color.Gray));
-                                    }
-                                    if (!string.IsNullOrEmpty(Maps.MapHelper.ActiveMap.Tile[PlayerManager.MyPlayer.X, PlayerManager.MyPlayer.Y - 1].String3.Trim()))
-                                    {
-                                        chat.AppendChat(Maps.MapHelper.ActiveMap.Tile[PlayerManager.MyPlayer.X, PlayerManager.MyPlayer.Y - 1].String3.Trim() + "\n", new SdlDotNet.Widgets.CharRenderOptions(Color.Gray));
-                                    }
-                                }
-                            }
-                        }
                         Pickup = false;
                     }
                     break;
