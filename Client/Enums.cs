@@ -96,17 +96,29 @@ namespace Client.Logic
 
         public enum LayerType
         {
-            None = 0,
-            Ground = 1,
-            GroundAnim = 2,
-            Mask = 3,
-            MaskAnim = 4,
-            Mask2 = 5,
-            Mask2Anim = 6,
-            Fringe = 7,
-            FringeAnim = 8,
-            Fringe2 = 9,
-            Fringe2Anim = 10
+            None,
+            Ground,
+            GroundAnim,
+            Mask,
+            MaskAnim,
+            Mask2,
+            Mask2Anim,
+            Mask3,
+            Mask3Anim,
+            Mask4,
+            Mask4Anim,
+            Mask5,
+            Mask5Anim,
+            Fringe,
+            FringeAnim,
+            Fringe2,
+            Fringe2Anim,
+            Fringe3,
+            Fringe3Anim,
+            Fringe4,
+            Fringe4Anim,
+            Fringe5,
+            Fringe5Anim
         }
 
         public enum Direction

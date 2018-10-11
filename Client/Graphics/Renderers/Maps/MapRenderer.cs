@@ -234,11 +234,64 @@ namespace Client.Logic.Graphics.Renderers.Maps
                             }
                         }
 
+                        DrawBaseLayerTile(destData, currentTile, mapAnim, currentTile.Mask3, currentTile.M3Anim, currentTile.Mask3Set, currentTile.Mask3Graphic, x - cameraX, y - cameraY);
+                        DrawAnimationLayerTile(destData, currentTile, mapAnim, currentTile.M3Anim, currentTile.M3AnimSet, currentTile.Mask3AnimGraphic, x - cameraX, y - cameraY);
+
+                        DrawBaseLayerTile(destData, currentTile, mapAnim, currentTile.Mask4, currentTile.M4Anim, currentTile.Mask4Set, currentTile.Mask4Graphic, x - cameraX, y - cameraY);
+                        DrawAnimationLayerTile(destData, currentTile, mapAnim, currentTile.M4Anim, currentTile.M4AnimSet, currentTile.Mask4AnimGraphic, x - cameraX, y - cameraY);
+
+                        DrawBaseLayerTile(destData, currentTile, mapAnim, currentTile.Mask5, currentTile.M5Anim, currentTile.Mask5Set, currentTile.Mask5Graphic, x - cameraX, y - cameraY);
+                        DrawAnimationLayerTile(destData, currentTile, mapAnim, currentTile.M5Anim, currentTile.M5AnimSet, currentTile.Mask5AnimGraphic, x - cameraX, y - cameraY);
+
                         DrawSpriteChangeTile(destData, activeMap, x, y);
                     }
                 }
             }
             DrawMissionGoalTileSeamless(destData, activeMap, cameraX, cameraY);
+        }
+
+        private static void DrawBaseLayerTile(RendererDestinationData destData, Tile currentTile, bool mapAnim, int tileNum, int animationTileNum, int sheet, TileGraphic graphic, int x, int y)
+        {
+            if (!mapAnim || (animationTileNum == 0 && mapAnim))
+            {
+                if (tileNum == 0 || (animationTileNum != 0 && mapAnim))
+                {
+                    // Do Nothing
+                }
+                else
+                {
+                    if (graphic == null || !(tileNum == graphic.TileNum && sheet == graphic.TileSet))
+                    {
+                        graphic = Logic.Graphics.GraphicsManager.Tiles[sheet].GetTileGraphic(tileNum);
+
+                        currentTile.M2AnimGraphic = graphic;
+                    }
+
+                    DrawTile(destData, graphic, x, y, false);
+                }
+            }
+        }
+
+        private static void DrawAnimationLayerTile(RendererDestinationData destData, Tile currentTile, bool mapAnim, int tileNum, int sheet, TileGraphic graphic, int x, int y)
+        {
+            if (mapAnim)
+            {
+                if (tileNum == 0)
+                {
+                    // Do Nothing
+                }
+                else
+                {
+                    if (graphic == null || !(tileNum == graphic.TileNum && sheet == graphic.TileSet))
+                    {
+                        graphic = Logic.Graphics.GraphicsManager.Tiles[sheet].GetTileGraphic(tileNum);
+
+                        currentTile.M2AnimGraphic = graphic;
+                    }
+
+                    DrawTile(destData, graphic, x, y, false);
+                }
+            }
         }
 
         public static void DrawGroundTiles(RendererDestinationData destData, Map activeMap, bool mapAnim, int cameraX, int cameraX2, int cameraY, int cameraY2)
@@ -473,6 +526,15 @@ namespace Client.Logic.Graphics.Renderers.Maps
                                 DrawTile(destData, graphic, x - cameraX, y - cameraY, false);
                             }
                         }
+
+                        DrawBaseLayerTile(destData, currentTile, mapAnim, currentTile.Fringe3, currentTile.F3Anim, currentTile.Fringe3Set, currentTile.Fringe3Graphic, x - cameraX, y - cameraY);
+                        DrawAnimationLayerTile(destData, currentTile, mapAnim, currentTile.F3Anim, currentTile.F3AnimSet, currentTile.Fringe3AnimGraphic, x - cameraX, y - cameraY);
+
+                        DrawBaseLayerTile(destData, currentTile, mapAnim, currentTile.Fringe4, currentTile.F4Anim, currentTile.Fringe4Set, currentTile.Fringe4Graphic, x - cameraX, y - cameraY);
+                        DrawAnimationLayerTile(destData, currentTile, mapAnim, currentTile.F4Anim, currentTile.F4AnimSet, currentTile.Fringe4AnimGraphic, x - cameraX, y - cameraY);
+
+                        DrawBaseLayerTile(destData, currentTile, mapAnim, currentTile.Fringe5, currentTile.F5Anim, currentTile.Fringe5Set, currentTile.Fringe5Graphic, x - cameraX, y - cameraY);
+                        DrawAnimationLayerTile(destData, currentTile, mapAnim, currentTile.F5Anim, currentTile.F5AnimSet, currentTile.Fringe5AnimGraphic, x - cameraX, y - cameraY);
                     }
                 }
             }

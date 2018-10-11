@@ -263,6 +263,54 @@ namespace Client.Logic.Maps
             set;
         }
 
+        public int Fringe3 { get; set; }
+        public int Fringe3Set { get; set; }
+        public int F3Anim { get; set; }
+        public int F3AnimSet { get; set; }
+
+        public TileGraphic Fringe3Graphic { get; set; }
+        public TileGraphic Fringe3AnimGraphic { get; set; }
+
+        public int Fringe4 { get; set; }
+        public int Fringe4Set { get; set; }
+        public int F4Anim { get; set; }
+        public int F4AnimSet { get; set; }
+
+        public TileGraphic Fringe4Graphic { get; set; }
+        public TileGraphic Fringe4AnimGraphic { get; set; }
+
+        public int Fringe5 { get; set; }
+        public int Fringe5Set { get; set; }
+        public int F5Anim { get; set; }
+        public int F5AnimSet { get; set; }
+
+        public TileGraphic Fringe5Graphic { get; set; }
+        public TileGraphic Fringe5AnimGraphic { get; set; }
+
+        public int Mask3 { get; set; }
+        public int Mask3Set { get; set; }
+        public int M3Anim { get; set; }
+        public int M3AnimSet { get; set; }
+
+        public TileGraphic Mask3Graphic { get; set; }
+        public TileGraphic Mask3AnimGraphic { get; set; }
+
+        public int Mask4 { get; set; }
+        public int Mask4Set { get; set; }
+        public int M4Anim { get; set; }
+        public int M4AnimSet { get; set; }
+
+        public TileGraphic Mask4Graphic { get; set; }
+        public TileGraphic Mask4AnimGraphic { get; set; }
+
+        public int Mask5 { get; set; }
+        public int Mask5Set { get; set; }
+        public int M5Anim { get; set; }
+        public int M5AnimSet { get; set; }
+
+        public TileGraphic Mask5Graphic { get; set; }
+        public TileGraphic Mask5AnimGraphic { get; set; }
+
         #endregion Properties
 
         public object Clone()
@@ -274,10 +322,22 @@ namespace Client.Logic.Maps
             tile.Anim = Anim;
             tile.Mask2 = Mask2;
             tile.M2Anim = M2Anim;
+            tile.Mask3 = Mask3;
+            tile.M3Anim = M3Anim;
+            tile.Mask4 = Mask4;
+            tile.M4Anim = M4Anim;
+            tile.Mask5 = Mask5;
+            tile.M5Anim = M5Anim;
             tile.Fringe = Fringe;
             tile.FAnim = FAnim;
             tile.Fringe2 = Fringe2;
             tile.F2Anim = F2Anim;
+            tile.Fringe3 = Fringe3;
+            tile.F3Anim = F3Anim;
+            tile.Fringe4 = Fringe4;
+            tile.F4Anim = F4Anim;
+            tile.Fringe5 = Fringe5;
+            tile.F5Anim = F5Anim;
             tile.Type = Type;
             tile.Data1 = Data1;
             tile.Data2 = Data2;
@@ -292,6 +352,12 @@ namespace Client.Logic.Maps
             tile.AnimSet = AnimSet;
             tile.Mask2Set = Mask2Set;
             tile.M2AnimSet = M2AnimSet;
+            tile.Mask3Set = Mask3Set;
+            tile.M3AnimSet = M3AnimSet;
+            tile.Mask4Set = Mask4Set;
+            tile.M4AnimSet = M4AnimSet;
+            tile.Mask5Set = Mask5Set;
+            tile.M5AnimSet = M5AnimSet;
             tile.FringeSet = FringeSet;
             tile.FAnimSet = FAnimSet;
             tile.Fringe2Set = Fringe2Set;
