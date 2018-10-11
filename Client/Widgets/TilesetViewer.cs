@@ -194,6 +194,17 @@ namespace Client.Logic.Widgets
             return (y * (activeTilesetSurf.Size.Width / Constants.TILE_WIDTH) + x);
         }
 
+        public void SelectTile(int tileNum)
+        {
+            var x = tileNum % (activeTilesetSurf.Size.Width / Constants.TILE_WIDTH);
+            var y = tileNum / (activeTilesetSurf.Size.Width / Constants.TILE_WIDTH);
+
+            selectedTile = new Point(x, y);
+            endTile = new Point(x, y);
+
+            RequestRedraw();
+        }
+
         private void DrawTiles()
         {
             if (vScroll != null && hScroll != null & activeTilesetSurf != null)

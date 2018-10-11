@@ -1414,6 +1414,11 @@ namespace Client.Logic.Windows
             }
         }
 
+        private void ChangeTilesetPreview(int tileset)
+        {
+            hTilesetSelect.Value = tileset;
+        }
+
         void btnTileset_Click(object sender, SdlDotNet.Widgets.MouseButtonEventArgs e)
         {
             ShowTilesetPanel();
@@ -1680,6 +1685,10 @@ namespace Client.Logic.Windows
 
         void OptionPanel(string option)
         {
+            txt1.Text = "1";
+            txt2.Text = "1";
+            txt3.Text = "1";
+
             switch (option.ToLower())
             {
                 case "warp":
@@ -1908,8 +1917,11 @@ namespace Client.Logic.Windows
                         lbl2.Visible = true;
                         lbl3.Visible = true;
                         txt1.Visible = true;
+                        txt1.Text = "";
                         txt2.Visible = true;
+                        txt2.Text = "";
                         txt3.Visible = true;
+                        txt3.Text = "";
                         OpenOptionsPanel();
                         btnTitle.Text = "Sign Attribute";
                     }
@@ -2359,10 +2371,7 @@ namespace Client.Logic.Windows
             btnMapping.Visible = false;
             btnLayers.Visible = false;
             btnTileset.Visible = false;
-            btnSettings.Visible = false;
-            txt1.Text = "1";
-            txt2.Text = "1";
-            txt3.Text = "1";
+            btnSettings.Visible = false; 
             if (optSound.Checked == false)
             {
                 lbl1.Visible = true;
@@ -2727,6 +2736,17 @@ namespace Client.Logic.Windows
                                             break;
                                     }
                                     nudDungeonTileValue.Value = tile.RDungeonMapValue;
+                                } else if (btnTerrain.Selected)
+                                {
+                                    SetActiveTool(MappingTool.Editor);
+
+                                    var activeTileset = GetActiveLayerTileset(X, Y);
+                                    var activeTile = GetActiveLayerTile(X, Y);
+
+                                    ChangeTilesetPreview(activeTileset);
+                                    tilesetViewer.ActiveTilesetSurface = Graphics.GraphicsManager.Tiles[activeTileset];
+
+                                    tilesetViewer.SelectTile(activeTile);
                                 }
                             }
                             break;
