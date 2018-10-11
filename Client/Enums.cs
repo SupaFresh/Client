@@ -523,6 +523,12 @@ namespace Client.Logic
             Spectate
         }
 
+        public enum GameplayMode
+        {
+            RealTime,
+            TurnBased
+        }
+
         #endregion Enumerations
     }
 }

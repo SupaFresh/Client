@@ -249,6 +249,7 @@ namespace Client.Logic.Maps
         }
 
         public string YouTubeMusicID { get; set; }
+        public Enums.GameplayMode GameplayMode { get; set; }
 
         #endregion Properties
 

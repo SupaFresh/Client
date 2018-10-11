@@ -90,7 +90,7 @@ namespace Client.Logic.Maps
                         case "mapdata":
                             {
                                 headerFound = true;
-                                if (parse[1].ToLower() != "v11")
+                                if (parse[1].ToLower() != "v12")
                                 {
                                     System.IO.File.Delete(filePath);
                                     return null;
@@ -131,6 +131,7 @@ namespace Client.Logic.Maps
                                 map.NpcSpawnTime = parse[19].ToInt();
                                 map.Instanced = parse[20].ToBool();
                                 map.YouTubeMusicID = parse[21];
+                                map.GameplayMode = (Enums.GameplayMode)parse[22].ToInt();
                             }
                             break;
                         case "npcsettings":
@@ -290,8 +291,9 @@ namespace Client.Logic.Maps
             map.Cacheable = parse[n + 21].ToBool();
             map.ImpersonatingMap = parse[n + 22];
             map.YouTubeMusicID = parse[n + 23];
+            map.GameplayMode = (Enums.GameplayMode)parse[n + 24].ToInt();
 
-            n += 24;
+            n += 25;
 
             for (int y = 0; y <= map.MaxY; y++)
             {
@@ -538,12 +540,12 @@ namespace Client.Logic.Maps
             string filePath = IO.Paths.CreateOSPath(IO.Paths.MapPath + "Map-" + map.MapID.ToString() + ".dat");
             StringBuilder writer = new StringBuilder();
 
-            writer.AppendLine("MapData|V11|" + map.Revision.ToString() + "|" + map.MaxX.ToString() + "|" + map.MaxY.ToString() + "|");
+            writer.AppendLine("MapData|V12|" + map.Revision.ToString() + "|" + map.MaxX.ToString() + "|" + map.MaxY.ToString() + "|");
             writer.AppendLine("Data|" + map.Name + "|" + ((int)map.Moral).ToString() + "|" + map.Up.ToString() + "|" + map.Down.ToString() + "|" +
                               map.Left.ToString() + "|" + map.Right.ToString() + "|" + map.Music + "|" + map.Indoors.ToString() +
                               "|" + map.Owner + "|" + ((int)map.Weather).ToString() + "|" + map.Darkness.ToString() + "|" +
                               map.HungerEnabled.ToIntString() + "|" + map.RecruitEnabled.ToIntString() + "|" + map.ExpEnabled.ToIntString() + "|" + map.TimeLimit.ToString() + "|" + map.DungeonIndex.ToString() + "|" + map.MinNpcs.ToString() + "|" + map.MaxNpcs.ToString() + "|" +
-                              map.NpcSpawnTime.ToString() + "|" + map.Instanced.ToIntString() + "|" + map.YouTubeMusicID + "|");
+                              map.NpcSpawnTime.ToString() + "|" + map.Instanced.ToIntString() + "|" + map.YouTubeMusicID + "|" + ((int)map.GameplayMode).ToString() + "|");
             //string npcData = "NpcData|";
             //string spawnXData = "SpawnX|";
             //string spawnYData = "SpawnY|";
