@@ -34,7 +34,7 @@ namespace Client.Logic.Updater
                 return new GitHubUpdateResult(false);
             }
 
-            if (IO.Options.LastUpdateTime < clientPackage.CreatedAt)
+            if (IO.Options.LastUpdateTime < clientPackage.CreatedAt.UtcDateTime)
             {
                 return new GitHubUpdateResult(true, clientPackage.BrowserDownloadUrl, clientPackage.CreatedAt.UtcDateTime, clientPackage.Size);
             } else
