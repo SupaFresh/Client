@@ -103,6 +103,7 @@ namespace Client.Logic.Windows.Editors
         NumericUpDown nudMaxFloors;
         CheckBox chkRecruiting;
         CheckBox chkEXPGain;
+        CheckBox chkTurnBased;
         Label lblWindTimer;
         NumericUpDown nudWindTimer;
         Button btnEditorCancel;
@@ -709,6 +710,12 @@ namespace Client.Logic.Windows.Editors
                 chkEXPGain.Font = Graphics.FontManager.LoadFont("tahoma", 10);
                 chkEXPGain.Text = "EXP Gained";
 
+                chkTurnBased = new CheckBox("chkTurnBased");
+                chkTurnBased.Size = new Size(100, 17);
+                chkTurnBased.Location = new Point(10, 154);
+                chkTurnBased.Font = Graphics.FontManager.LoadFont("tahoma", 10);
+                chkTurnBased.Text = "Turn-Based";
+
                 lblWindTimer = new Label("lblWindTimer");
                 lblWindTimer.AutoSize = true;
                 lblWindTimer.Location = new Point(128, 118);
@@ -753,6 +760,7 @@ namespace Client.Logic.Windows.Editors
                 pnlRDungeonGeneral.AddWidget(nudMaxFloors);
                 pnlRDungeonGeneral.AddWidget(chkRecruiting);
                 pnlRDungeonGeneral.AddWidget(chkEXPGain);
+                pnlRDungeonGeneral.AddWidget(chkTurnBased);
                 pnlRDungeonGeneral.AddWidget(lblWindTimer);
                 pnlRDungeonGeneral.AddWidget(nudWindTimer);
                 #endregion General
@@ -3219,7 +3227,9 @@ namespace Client.Logic.Windows.Editors
             rdungeon.Exp = parse[6].ToBool();
             rdungeon.WindTimer = parse[7].ToInt();
             rdungeon.DungeonIndex = parse[8].ToInt();
-            int n = 9;
+            rdungeon.IsTurnBased = parse[9].ToBool();
+
+            int n = 10;
             for (int i = 0; i < rdungeon.MaxFloors; i++)
             {
                 rdungeon.Floors.Add(new EditableRDungeonFloor());
@@ -3606,6 +3616,7 @@ namespace Client.Logic.Windows.Editors
             nudMaxFloors.Value = rdungeon.MaxFloors;
             chkRecruiting.Checked = rdungeon.Recruitment;
             chkEXPGain.Checked = rdungeon.Exp;
+            chkTurnBased.Checked = rdungeon.IsTurnBased;
             nudWindTimer.Value = rdungeon.WindTimer;
 
             pnlRDungeonGeneral.Visible = true;
@@ -3677,6 +3688,7 @@ namespace Client.Logic.Windows.Editors
             rdungeon.MaxFloors = nudMaxFloors.Value;
             rdungeon.Recruitment = chkRecruiting.Checked;
             rdungeon.Exp = chkEXPGain.Checked;
+            rdungeon.IsTurnBased = chkTurnBased.Checked;
             rdungeon.WindTimer = nudWindTimer.Value;
 
             Messenger.SendSaveRDungeon(rdungeon);

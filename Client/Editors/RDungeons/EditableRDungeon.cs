@@ -34,6 +34,7 @@ namespace Client.Logic.Editors.RDungeons
         public bool Exp { get; set; }
         public int WindTimer { get; set; }
         public int DungeonIndex { get; set; }
+        public bool IsTurnBased { get; set; }
 
         public List<EditableRDungeonFloor> Floors { get; set; }
 
