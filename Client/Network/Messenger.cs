@@ -490,7 +490,7 @@ namespace Client.Logic.Network
             packet.AppendParameter(rdungeon.RDungeonIndex.ToString());
 
             packet.AppendParameters(rdungeon.DungeonName, ((int)rdungeon.Direction).ToString(), rdungeon.MaxFloors.ToString(),
-                rdungeon.Recruitment.ToIntString(), rdungeon.Exp.ToIntString(), rdungeon.WindTimer.ToString(), rdungeon.DungeonIndex.ToString());
+                rdungeon.Recruitment.ToIntString(), rdungeon.Exp.ToIntString(), rdungeon.WindTimer.ToString(), rdungeon.DungeonIndex.ToString(), rdungeon.IsTurnBased.ToIntString());
             for (int i = 0; i < rdungeon.MaxFloors; i++)
             {
                 if (i >= rdungeon.Floors.Count)
