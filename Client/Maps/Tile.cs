@@ -362,6 +362,12 @@ namespace Client.Logic.Maps
             tile.FAnimSet = FAnimSet;
             tile.Fringe2Set = Fringe2Set;
             tile.F2AnimSet = F2AnimSet;
+            tile.Fringe3Set = Fringe3Set;
+            tile.F3AnimSet = F3AnimSet;
+            tile.Fringe4Set = Fringe4Set;
+            tile.F4AnimSet = F4AnimSet;
+            tile.Fringe5Set = Fringe5Set;
+            tile.F5AnimSet = F5AnimSet;
             return tile;
         }
     }
