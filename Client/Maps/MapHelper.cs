@@ -238,10 +238,22 @@ namespace Client.Logic.Maps
                                 tile.AnimGraphic = Logic.Graphics.GraphicsManager.Tiles[tile.AnimSet].GetTileGraphic(tile.Anim);
                                 tile.Mask2Graphic = Logic.Graphics.GraphicsManager.Tiles[tile.Mask2Set].GetTileGraphic(tile.Mask2);
                                 tile.M2AnimGraphic = Logic.Graphics.GraphicsManager.Tiles[tile.M2AnimSet].GetTileGraphic(tile.M2Anim);
+                                tile.Mask3Graphic = Logic.Graphics.GraphicsManager.Tiles[tile.Mask3Set].GetTileGraphic(tile.Mask3);
+                                tile.Mask3AnimGraphic = Logic.Graphics.GraphicsManager.Tiles[tile.M3AnimSet].GetTileGraphic(tile.M3Anim);
+                                tile.Mask4Graphic = Logic.Graphics.GraphicsManager.Tiles[tile.Mask4Set].GetTileGraphic(tile.Mask4);
+                                tile.Mask4AnimGraphic = Logic.Graphics.GraphicsManager.Tiles[tile.M4AnimSet].GetTileGraphic(tile.M4Anim);
+                                tile.Mask5Graphic = Logic.Graphics.GraphicsManager.Tiles[tile.Mask5Set].GetTileGraphic(tile.Mask5);
+                                tile.Mask5AnimGraphic = Logic.Graphics.GraphicsManager.Tiles[tile.M5AnimSet].GetTileGraphic(tile.M5Anim);
                                 tile.FringeGraphic = Logic.Graphics.GraphicsManager.Tiles[tile.FringeSet].GetTileGraphic(tile.Fringe);
                                 tile.FAnimGraphic = Logic.Graphics.GraphicsManager.Tiles[tile.FAnimSet].GetTileGraphic(tile.FAnim);
                                 tile.Fringe2Graphic = Logic.Graphics.GraphicsManager.Tiles[tile.Fringe2Set].GetTileGraphic(tile.Fringe2);
                                 tile.F2AnimGraphic = Logic.Graphics.GraphicsManager.Tiles[tile.F2AnimSet].GetTileGraphic(tile.F2Anim);
+                                tile.Fringe3Graphic = Logic.Graphics.GraphicsManager.Tiles[tile.Fringe3Set].GetTileGraphic(tile.Fringe3);
+                                tile.Fringe3AnimGraphic = Logic.Graphics.GraphicsManager.Tiles[tile.F3AnimSet].GetTileGraphic(tile.F3Anim);
+                                tile.Fringe4Graphic = Logic.Graphics.GraphicsManager.Tiles[tile.Fringe4Set].GetTileGraphic(tile.Fringe4);
+                                tile.Fringe4AnimGraphic = Logic.Graphics.GraphicsManager.Tiles[tile.F4AnimSet].GetTileGraphic(tile.F4Anim);
+                                tile.Fringe5Graphic = Logic.Graphics.GraphicsManager.Tiles[tile.Fringe5Set].GetTileGraphic(tile.Fringe5);
+                                tile.Fringe5AnimGraphic = Logic.Graphics.GraphicsManager.Tiles[tile.F5AnimSet].GetTileGraphic(tile.F5Anim);
                             }
                             break;
                     }
@@ -363,22 +375,22 @@ namespace Client.Logic.Maps
                     tile.AnimGraphic = Logic.Graphics.GraphicsManager.Tiles[tile.AnimSet].GetTileGraphic(tile.Anim);
                     tile.Mask2Graphic = Logic.Graphics.GraphicsManager.Tiles[tile.Mask2Set].GetTileGraphic(tile.Mask2);
                     tile.M2AnimGraphic = Logic.Graphics.GraphicsManager.Tiles[tile.M2AnimSet].GetTileGraphic(tile.M2Anim);
-                    tile.Mask3Graphic = Logic.Graphics.GraphicsManager.Tiles[tile.Mask2Set].GetTileGraphic(tile.Mask3);
-                    tile.Mask3AnimGraphic = Logic.Graphics.GraphicsManager.Tiles[tile.M2AnimSet].GetTileGraphic(tile.M3Anim);
-                    tile.Mask4Graphic = Logic.Graphics.GraphicsManager.Tiles[tile.Mask2Set].GetTileGraphic(tile.Mask4);
-                    tile.Mask4AnimGraphic = Logic.Graphics.GraphicsManager.Tiles[tile.M2AnimSet].GetTileGraphic(tile.M4Anim);
-                    tile.Mask5Graphic = Logic.Graphics.GraphicsManager.Tiles[tile.Mask2Set].GetTileGraphic(tile.Mask5);
-                    tile.Mask5AnimGraphic = Logic.Graphics.GraphicsManager.Tiles[tile.M2AnimSet].GetTileGraphic(tile.M5Anim);
+                    tile.Mask3Graphic = Logic.Graphics.GraphicsManager.Tiles[tile.Mask3Set].GetTileGraphic(tile.Mask3);
+                    tile.Mask3AnimGraphic = Logic.Graphics.GraphicsManager.Tiles[tile.M3AnimSet].GetTileGraphic(tile.M3Anim);
+                    tile.Mask4Graphic = Logic.Graphics.GraphicsManager.Tiles[tile.Mask4Set].GetTileGraphic(tile.Mask4);
+                    tile.Mask4AnimGraphic = Logic.Graphics.GraphicsManager.Tiles[tile.M4AnimSet].GetTileGraphic(tile.M4Anim);
+                    tile.Mask5Graphic = Logic.Graphics.GraphicsManager.Tiles[tile.Mask5Set].GetTileGraphic(tile.Mask5);
+                    tile.Mask5AnimGraphic = Logic.Graphics.GraphicsManager.Tiles[tile.M5AnimSet].GetTileGraphic(tile.M5Anim);
                     tile.FringeGraphic = Logic.Graphics.GraphicsManager.Tiles[tile.FringeSet].GetTileGraphic(tile.Fringe);
                     tile.FAnimGraphic = Logic.Graphics.GraphicsManager.Tiles[tile.FAnimSet].GetTileGraphic(tile.FAnim);
                     tile.Fringe2Graphic = Logic.Graphics.GraphicsManager.Tiles[tile.Fringe2Set].GetTileGraphic(tile.Fringe2);
                     tile.F2AnimGraphic = Logic.Graphics.GraphicsManager.Tiles[tile.F2AnimSet].GetTileGraphic(tile.F2Anim);
-                    tile.Fringe3Graphic = Logic.Graphics.GraphicsManager.Tiles[tile.Fringe2Set].GetTileGraphic(tile.Fringe3);
-                    tile.Fringe3AnimGraphic = Logic.Graphics.GraphicsManager.Tiles[tile.F2AnimSet].GetTileGraphic(tile.F3Anim);
-                    tile.Fringe4Graphic = Logic.Graphics.GraphicsManager.Tiles[tile.Fringe2Set].GetTileGraphic(tile.Fringe4);
-                    tile.Fringe4AnimGraphic = Logic.Graphics.GraphicsManager.Tiles[tile.F2AnimSet].GetTileGraphic(tile.F4Anim);
-                    tile.Fringe5Graphic = Logic.Graphics.GraphicsManager.Tiles[tile.Fringe2Set].GetTileGraphic(tile.Fringe5);
-                    tile.Fringe5AnimGraphic = Logic.Graphics.GraphicsManager.Tiles[tile.F2AnimSet].GetTileGraphic(tile.F5Anim);
+                    tile.Fringe3Graphic = Logic.Graphics.GraphicsManager.Tiles[tile.Fringe3Set].GetTileGraphic(tile.Fringe3);
+                    tile.Fringe3AnimGraphic = Logic.Graphics.GraphicsManager.Tiles[tile.F3AnimSet].GetTileGraphic(tile.F3Anim);
+                    tile.Fringe4Graphic = Logic.Graphics.GraphicsManager.Tiles[tile.Fringe4Set].GetTileGraphic(tile.Fringe4);
+                    tile.Fringe4AnimGraphic = Logic.Graphics.GraphicsManager.Tiles[tile.F4AnimSet].GetTileGraphic(tile.F4Anim);
+                    tile.Fringe5Graphic = Logic.Graphics.GraphicsManager.Tiles[tile.Fringe5Set].GetTileGraphic(tile.Fringe5);
+                    tile.Fringe5AnimGraphic = Logic.Graphics.GraphicsManager.Tiles[tile.F5AnimSet].GetTileGraphic(tile.F5Anim);
                 }
             }
 

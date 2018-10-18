@@ -263,8 +263,6 @@ namespace Client.Logic.Graphics.Renderers.Maps
                     if (graphic == null || !(tileNum == graphic.TileNum && sheet == graphic.TileSet))
                     {
                         graphic = Logic.Graphics.GraphicsManager.Tiles[sheet].GetTileGraphic(tileNum);
-
-                        currentTile.M2AnimGraphic = graphic;
                     }
 
                     DrawTile(destData, graphic, x, y, false);
@@ -285,8 +283,6 @@ namespace Client.Logic.Graphics.Renderers.Maps
                     if (graphic == null || !(tileNum == graphic.TileNum && sheet == graphic.TileSet))
                     {
                         graphic = Logic.Graphics.GraphicsManager.Tiles[sheet].GetTileGraphic(tileNum);
-
-                        currentTile.M2AnimGraphic = graphic;
                     }
 
                     DrawTile(destData, graphic, x, y, false);
