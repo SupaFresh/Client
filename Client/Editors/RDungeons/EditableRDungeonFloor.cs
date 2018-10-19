@@ -62,6 +62,7 @@ namespace Client.Logic.Editors.RDungeons
         public int GoalY { get; set; }
 
         public string Music { get; set; }
+        public string YouTubeVideoId { get; set; }
 
 
 
