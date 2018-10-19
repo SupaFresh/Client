@@ -510,7 +510,7 @@ namespace Client.Logic.Network
                                         rdungeon.Floors[i].CraterFuzzy.ToIntString(),
                                         rdungeon.Floors[i].MinChambers.ToString(), rdungeon.Floors[i].MaxChambers.ToString());
                 packet.AppendParameters(rdungeon.Floors[i].Darkness, (int)rdungeon.Floors[i].GoalType, rdungeon.Floors[i].GoalMap, rdungeon.Floors[i].GoalX, rdungeon.Floors[i].GoalY);
-                packet.AppendParameter(rdungeon.Floors[i].Music);
+                packet.AppendParameters(rdungeon.Floors[i].Music, rdungeon.Floors[i].YouTubeVideoId);
                 //Terrain
                 packet.AppendParameters(rdungeon.Floors[i].StairsX.ToString(), rdungeon.Floors[i].StairsSheet.ToString(),
                                         rdungeon.Floors[i].mGroundX.ToString(), rdungeon.Floors[i].mGroundSheet.ToString(),

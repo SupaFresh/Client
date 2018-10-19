@@ -513,6 +513,8 @@ namespace Client.Logic.Windows.Editors
         Button btnPlayMusic;
         Label lblDarkness;
         NumericUpDown nudDarkness;
+        Label lblYouTubeVideoId;
+        TextBox txtYouTubeVideoId;
         #endregion
         #endregion
 
@@ -3061,7 +3063,7 @@ namespace Client.Logic.Windows.Editors
                 //ListBox lbxMusic;
                 lbxMusic = new ListBox("lbxMusic");
                 lbxMusic.Location = new Point(10, 76);
-                lbxMusic.Size = new Size(260, 220);
+                lbxMusic.Size = new Size(260, 180);
                 lbxMusic.Items.Add(new ListBoxTextItem(Graphics.FontManager.LoadFont("Tahoma", 10), "None"));
                 string[] songs = System.IO.Directory.GetFiles(IO.Paths.MusicPath);
                 for (int i = 0; i < songs.Length; i++)
@@ -3076,6 +3078,19 @@ namespace Client.Logic.Windows.Editors
                 btnPlayMusic.Visible = true;
                 btnPlayMusic.Text = "Play Song";
                 btnPlayMusic.Click += new EventHandler<MouseButtonEventArgs>(btnPlayMusic_Click);
+
+                lblYouTubeVideoId = new Label("lblYouTubeVideoId");
+                lblYouTubeVideoId.Location = new Point(10, 261);
+                lblYouTubeVideoId.Font = Graphics.FontManager.LoadFont("tahoma", 10);
+                lblYouTubeVideoId.Text = "YouTube Video ID";
+                lblYouTubeVideoId.AutoSize = true;
+
+                txtYouTubeVideoId = new TextBox("txtYouTubeVideoId");
+                txtYouTubeVideoId.BackColor = Color.White;
+                txtYouTubeVideoId.Location = new Point(10, 276);
+                txtYouTubeVideoId.Size = new Size(260, 15);
+                txtYouTubeVideoId.Font = Graphics.FontManager.LoadFont("tahoma", 10);
+
                 #endregion
                 #region Added to pnlRDungeonMisc
                 pnlRDungeonMisc.AddWidget(lblMisc);
@@ -3084,6 +3099,8 @@ namespace Client.Logic.Windows.Editors
                 pnlRDungeonMisc.AddWidget(btnPlayMusic);
                 pnlRDungeonMisc.AddWidget(lblDarkness);
                 pnlRDungeonMisc.AddWidget(nudDarkness);
+                pnlRDungeonMisc.AddWidget(lblYouTubeVideoId);
+                pnlRDungeonMisc.AddWidget(txtYouTubeVideoId);
                 #endregion
                 pnlRDungeonFloors.AddWidget(pnlRDungeonMisc);
                 miscLoaded = true;
@@ -3259,8 +3276,9 @@ namespace Client.Logic.Windows.Editors
                 rdungeon.Floors[i].GoalX = parse[n + 23].ToInt();
                 rdungeon.Floors[i].GoalY = parse[n + 24].ToInt();
                 rdungeon.Floors[i].Music = parse[n + 25];
+                rdungeon.Floors[i].YouTubeVideoId = parse[n + 26];
 
-                n += 26;
+                n += 27;
 
                 rdungeon.Floors[i].StairsX = parse[n].ToInt();
                 rdungeon.Floors[i].StairsSheet = parse[n + 1].ToInt();
@@ -4164,6 +4182,7 @@ namespace Client.Logic.Windows.Editors
 
                     //Misc
                     rdungeon.Floors[floor].Darkness = nudDarkness.Value;
+                    rdungeon.Floors[floor].YouTubeVideoId = txtYouTubeVideoId.Text;
                     if (lbxMusic.SelectedItems.Count != 1 || lbxMusic.Items[0].Selected)
                     {
                         rdungeon.Floors[floor].Music = "";
@@ -4612,6 +4631,7 @@ namespace Client.Logic.Windows.Editors
                 for (int floor = nudFirstFloor.Value - 1; floor < nudLastFloor.Value; floor++)
                 {
                     rdungeon.Floors[floor].Darkness = nudDarkness.Value;
+                    rdungeon.Floors[floor].YouTubeVideoId = txtYouTubeVideoId.Text;
                     if (lbxMusic.SelectedItems.Count != 1 || lbxMusic.Items[0].Selected)
                     {
                         rdungeon.Floors[floor].Music = "";
@@ -5060,6 +5080,7 @@ namespace Client.Logic.Windows.Editors
 
                 //Misc
                 nudDarkness.Value = loadingfloor.Darkness;
+                txtYouTubeVideoId.Text = loadingfloor.YouTubeVideoId;
                 if (loadingfloor.Music == "")
                 {
                     lbxMusic.SelectItem(0);
@@ -5517,6 +5538,7 @@ namespace Client.Logic.Windows.Editors
             else if (pnlRDungeonMisc != null && pnlRDungeonMisc.Visible == true)
             {
                 nudDarkness.Value = loadingfloor.Darkness;
+                txtYouTubeVideoId.Text = loadingfloor.YouTubeVideoId;
                 if (loadingfloor.Music == "")
                 {
                     lbxMusic.SelectItem(0);
