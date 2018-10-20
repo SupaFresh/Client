@@ -26,6 +26,7 @@ namespace Client.Logic.Input
     using System.Drawing;
     using Client.Logic.Windows;
     using Client.Logic.Graphics.Renderers.Screen;
+    using System.Windows.Forms;
 
     /// <summary>
     /// Description of InputProcessor.
@@ -255,6 +256,24 @@ namespace Client.Logic.Input
                     if (chat != null)
                     {
                         chat.AppendChat("Screenshot #" + openScreenshot + " saved!", System.Drawing.Color.Yellow);
+                    }
+                }
+            }
+            else if (e.Key == SdlInput.Key.F12)
+            {
+                if (Ranks.IsAllowed(PlayerManager.MyPlayer, Enums.Rank.Mapper))
+                {
+                    if (WindowSwitcher.GameWindow.MapViewer.ActiveMap != null && WindowSwitcher.GameWindow.MapViewer.ActiveMap.Loaded)
+                    {
+                        var surf = WindowSwitcher.GameWindow.MapViewer.CaptureMapImage(false, false, false);
+
+                        Clipboard.SetImage(surf.Bitmap);
+
+                        var chat = (ExpKit.Modules.kitChat)Windows.WindowSwitcher.ExpKit.KitContainer.ModuleSwitcher.FindKitModule(Enums.ExpKitModules.Chat);
+                        if (chat != null)
+                        {
+                            chat.AppendChat("Map screenshot copied to clipboard!", System.Drawing.Color.Yellow);
+                        }
                     }
                 }
             }
