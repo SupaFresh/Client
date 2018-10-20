@@ -200,9 +200,9 @@ namespace Client.Logic.Widgets
             else
             {
                 cameraX = 0;
-                cameraX2 = Graphics.Renderers.Screen.ScreenRenderer.RenderOptions.Map.MaxX;
+                cameraX2 = Graphics.Renderers.Screen.ScreenRenderer.RenderOptions.Map.MaxX + 1;
                 cameraY = 0;
-                cameraY2 = Graphics.Renderers.Screen.ScreenRenderer.RenderOptions.Map.MaxY;
+                cameraY2 = Graphics.Renderers.Screen.ScreenRenderer.RenderOptions.Map.MaxY + 1;
             }
             SdlDotNet.Graphics.Surface screenshotSurf = new SdlDotNet.Graphics.Surface((cameraX2 - cameraX) * Constants.TILE_WIDTH, (cameraY2 - cameraY) * Constants.TILE_HEIGHT);
             screenshotSurf.Fill(Color.White);
