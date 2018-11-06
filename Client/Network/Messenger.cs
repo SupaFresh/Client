@@ -1207,6 +1207,8 @@ namespace Client.Logic.Network
             packet.AppendParameters(
                 npc.Name,
                 npc.AttackSay,
+                npc.AttackSay2,
+                npc.AttackSay3,
                 npc.Form.ToString(),
                 npc.Species.ToString(),
                 npc.ShinyChance.ToString(),
