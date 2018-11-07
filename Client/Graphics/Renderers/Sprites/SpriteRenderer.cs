@@ -291,10 +291,19 @@ namespace Client.Logic.Graphics.Renderers.Sprites
             int y = sprite.Location.Y;
             Renderers.Maps.SeamlessWorldHelper.ConvertCoordinatesToBorderless(activeMap, targetMapID, ref x, ref y);
 
+            string adjustedName;
+            if (sprite.Shiny == Enums.Coloration.Shiny)
+            {
+                adjustedName = $"*{name}";
+            } else
+            {
+                adjustedName = name;
+            }
+
             //if (sprite.Size == Enums.Size.Normal) {
-            textX = ScreenRenderer.ToTileX(x) + sprite.Offset.X + (Constants.TILE_WIDTH / 2) - (name.Length * 7 / 2);
+            textX = ScreenRenderer.ToTileX(x) + sprite.Offset.X + (Constants.TILE_WIDTH / 2) - (adjustedName.Length * 7 / 2);
             textY = ScreenRenderer.ToTileY(y) + sprite.Offset.Y - (Constants.TILE_HEIGHT / 2) - /*4*/ 32;
-            TextRenderer.DrawText(destData, name, color, Color.Black, textX, textY);
+            TextRenderer.DrawText(destData, adjustedName, color, Color.Black, textX, textY);
             //} else {
             //    textX = ScreenRenderer.ToTileX(sprite.Location.X) + sprite.Offset.X + (Constants.TILE_WIDTH / 2) - ((name.Length / 2) * 8);
             //    textY = ScreenRenderer.ToTileY(sprite.Location.Y) + sprite.Offset.Y - (Constants.TILE_HEIGHT / 2) - 48;
