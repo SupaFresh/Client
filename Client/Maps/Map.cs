@@ -277,6 +277,7 @@ namespace Client.Logic.Maps
         public void LoadFromHouseClass(HouseProperties properties)
         {
             Music = properties.Music;
+            YouTubeMusicID = properties.YouTubeMusicID;
         }
 
         public void LoadFromPropertiesClass(MapProperties properties)
@@ -325,6 +326,7 @@ namespace Client.Logic.Maps
         {
             HouseProperties properties = new HouseProperties();
             properties.Music = Music;
+            properties.YouTubeMusicID = YouTubeMusicID;
             return properties;
         }
 

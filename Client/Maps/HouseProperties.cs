@@ -25,5 +25,6 @@ namespace Client.Logic.Maps
     class HouseProperties
     {
         public string Music { get; set; }
+        public string YouTubeMusicID { get; set; }
     }
 }
