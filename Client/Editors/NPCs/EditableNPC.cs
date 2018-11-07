@@ -48,6 +48,9 @@ namespace Client.Logic.Editors.NPCs
             set;
         }
 
+        public string AttackSay2 { get; set; }
+        public string AttackSay3 { get; set; }
+
         public int Form
         {
             get;

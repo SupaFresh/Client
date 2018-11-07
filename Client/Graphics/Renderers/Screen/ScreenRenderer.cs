@@ -312,7 +312,8 @@ namespace Client.Logic.Graphics.Renderers.Screen
                             for (int i = 0; i < Stories.StoryProcessor.ActiveStory.State.FNPCs.Count; i++)
                             {
                                 if (Stories.StoryProcessor.ActiveStory.State.FNPCs[i].MapID == renderOptions.Map.MapID ||
-                                    Stories.StoryProcessor.ActiveStory.State.FNPCs[i].MapID == "-2" && renderOptions.Map.MapID.StartsWith("i"))
+                                    (Stories.StoryProcessor.ActiveStory.State.FNPCs[i].MapID == "-2" && renderOptions.Map.MapID.StartsWith("i")) ||
+                                    Stories.StoryProcessor.ActiveStory.State.FNPCs[i].MapID == renderOptions.Map.ImpersonatingMap)
                                 {
                                     Stories.FNPCs.FNPC fNPC = Stories.StoryProcessor.ActiveStory.State.FNPCs[i];
 

@@ -499,18 +499,20 @@ namespace Client.Logic.Windows.Editors
 
             npc.Name = parse[1];
             npc.AttackSay = parse[2];
-            npc.Form = parse[3].ToInt();
-            npc.Species = parse[4].ToInt();
-            npc.ShinyChance = parse[5].ToInt();
-            npc.Behavior = (Enums.NpcBehavior)parse[6].ToInt();
-            npc.RecruitRate = parse[7].ToInt();
-            npc.AIScript = parse[8];
-            npc.SpawnsAtDawn = parse[9].ToBool();
-            npc.SpawnsAtDay = parse[10].ToBool();
-            npc.SpawnsAtDusk = parse[11].ToBool();
-            npc.SpawnsAtNight = parse[12].ToBool();
+            npc.AttackSay2 = parse[3];
+            npc.AttackSay3 = parse[4];
+            npc.Form = parse[5].ToInt();
+            npc.Species = parse[6].ToInt();
+            npc.ShinyChance = parse[7].ToInt();
+            npc.Behavior = (Enums.NpcBehavior)parse[8].ToInt();
+            npc.RecruitRate = parse[9].ToInt();
+            npc.AIScript = parse[10];
+            npc.SpawnsAtDawn = parse[11].ToBool();
+            npc.SpawnsAtDay = parse[12].ToBool();
+            npc.SpawnsAtDusk = parse[13].ToBool();
+            npc.SpawnsAtNight = parse[14].ToBool();
 
-            int n = 13;
+            int n = 15;
             // Load npc moves
             for (int i = 0; i < npc.Moves.Length; i++)
             {
