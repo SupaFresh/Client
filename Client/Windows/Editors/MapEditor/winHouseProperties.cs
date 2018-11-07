@@ -35,6 +35,8 @@ namespace Client.Logic.Windows.Editors.MapEditor
         Button btnStop;
         ComboBox cmbMusic;
         Label lblMusic;
+        Label lblYouTubeMusicID;
+        TextBox txtYouTubeMusicID;
 
         HouseProperties properties;
 
@@ -55,7 +57,7 @@ namespace Client.Logic.Windows.Editors.MapEditor
             //this.BorderStyle = SdlDotNet.Widgets.BorderStyle.FixedSingle;
             //this.BorderWidth = 1;
             //this.BorderColor = Color.Black;
-            this.Size = new Size(500, 160);
+            this.Size = new Size(500, 230);
             this.Location = DrawingSupport.GetCenter(SdlDotNet.Graphics.Video.Screen.Size, this.Size);
 
             properties = Maps.MapHelper.ActiveMap.ExportToHouseClass();
@@ -88,10 +90,21 @@ namespace Client.Logic.Windows.Editors.MapEditor
             btnStop.Text = "Stop";
             btnStop.Click += new EventHandler<MouseButtonEventArgs>(btnStop_Click);
 
+            lblYouTubeMusicID = new Label("lblYouTubeMusicID");
+            lblYouTubeMusicID.Font = Logic.Graphics.FontManager.LoadFont("PMDCP", 22);
+            lblYouTubeMusicID.AutoSize = true;
+            lblYouTubeMusicID.Location = new Point(20, 90);
+            lblYouTubeMusicID.Text = "YouTube (Music) Video ID";
+
+            txtYouTubeMusicID = new TextBox("txtYouTubeMusicID");
+            txtYouTubeMusicID.Size = new System.Drawing.Size(375, 30);
+            txtYouTubeMusicID.Location = new Point(25, 120);
+            txtYouTubeMusicID.Text = properties.YouTubeMusicID;
+
             btnOk = new Button("btnOk");
             btnOk.Font = Logic.Graphics.FontManager.LoadFont("PMDCP", 18);
             btnOk.Size = new System.Drawing.Size(75, 30);
-            btnOk.Location = new Point(20, 100);
+            btnOk.Location = new Point(20, 170);
             Skins.SkinManager.LoadButtonGui(btnOk);
             btnOk.Text = "Ok";
             btnOk.Click += new EventHandler<MouseButtonEventArgs>(btnOk_Click);
@@ -99,7 +112,7 @@ namespace Client.Logic.Windows.Editors.MapEditor
             btnCancel = new Button("btnCancel");
             btnCancel.Font = Logic.Graphics.FontManager.LoadFont("PMDCP", 18);
             btnCancel.Size = new System.Drawing.Size(75, 30);
-            btnCancel.Location = new Point(95, 100);
+            btnCancel.Location = new Point(95, 170);
             Skins.SkinManager.LoadButtonGui(btnCancel);
             btnCancel.Text = "Cancel";
             btnCancel.Click += new EventHandler<MouseButtonEventArgs>(btnCancel_Click);
@@ -108,6 +121,8 @@ namespace Client.Logic.Windows.Editors.MapEditor
 
             this.AddWidget(lblMusic);
             this.AddWidget(cmbMusic);
+            this.AddWidget(lblYouTubeMusicID);
+            this.AddWidget(txtYouTubeMusicID);
             this.AddWidget(btnPlay);
             this.AddWidget(btnStop);
             this.AddWidget(btnOk);
@@ -146,6 +161,7 @@ namespace Client.Logic.Windows.Editors.MapEditor
         void btnOk_Click(object sender, MouseButtonEventArgs e)
         {
             properties.Music = (cmbMusic.SelectedItem == null || string.IsNullOrEmpty(cmbMusic.SelectedItem.TextIdentifier)) ? properties.Music : cmbMusic.SelectedItem.TextIdentifier;
+            properties.YouTubeMusicID = txtYouTubeMusicID.Text ?? "";
             Maps.MapHelper.ActiveMap.LoadFromHouseClass(properties);
             this.Close();
         }
