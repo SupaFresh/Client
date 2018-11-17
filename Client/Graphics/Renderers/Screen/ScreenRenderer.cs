@@ -783,11 +783,12 @@ namespace Client.Logic.Graphics.Renderers.Screen
                     {
                         if (renderOptions.Map.Darkness == -1)
                         {
-                            for (int x = PlayerManager.MyPlayer.X - MaxInfo.MaxMapX; x < PlayerManager.MyPlayer.X + MaxInfo.MaxMapX; x++)
+
+                            for (int x = GetScreenLeft(); x < GetScreenRight(); x++)
                             {
                                 if (x >= 0 && x < renderOptions.Map.Tile.GetLength(0))
                                 {
-                                    for (int y = PlayerManager.MyPlayer.Y - MaxInfo.MaxMapY; y < PlayerManager.MyPlayer.Y + MaxInfo.MaxMapY; y++)
+                                    for (int y = GetScreenTop(); y < GetScreenBottom(); y++)
                                     {
                                         if (y >= 0 && y < renderOptions.Map.Tile.GetLength(1))
                                         {
