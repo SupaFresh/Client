@@ -223,7 +223,7 @@ namespace Client.Logic.Graphics.Renderers.Sprites
                     {
                         sprite.IdleTimer = Globals.Tick + 2000;
                     }
-                    else if (Globals.Tick > sprite.IdleTimer + 100)
+                    else if (Globals.Tick > sprite.IdleTimer + 150)
                     {
                         sprite.IdleTimer = Globals.Tick;
 
