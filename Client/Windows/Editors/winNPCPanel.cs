@@ -200,7 +200,7 @@ namespace Client.Logic.Windows.Editors
             nudSpecies.Location = new Point(75, 65);
             nudSpecies.Size = new System.Drawing.Size(200, 15);
             nudSpecies.Minimum = -1;
-            nudSpecies.Maximum = 649;
+            nudSpecies.Maximum = 1000;
             nudForm.ValueChanged += new EventHandler<ValueChangedEventArgs>(nudSpecies_ValueChanged);
 
             lblRange = new Label("lblRange");
