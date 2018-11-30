@@ -1218,7 +1218,8 @@ namespace Client.Logic.Network
                 npc.SpawnsAtDawn.ToIntString(),
                 npc.SpawnsAtDay.ToIntString(),
                 npc.SpawnsAtDusk.ToIntString(),
-                npc.SpawnsAtNight.ToIntString()
+                npc.SpawnsAtNight.ToIntString(),
+                ((int)npc.SpawnDirection).ToString()
             );
 
             for (int i = 0; i < npc.Moves.Length; i++)
