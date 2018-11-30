@@ -514,8 +514,9 @@ namespace Client.Logic.Windows.Editors
             npc.SpawnsAtDusk = parse[n + 12].ToBool();
             npc.SpawnsAtNight = parse[n + 13].ToBool();
             npc.SpawnDirection = (Enums.Direction)parse[n + 14].ToInt();
+            npc.SpawnWeather = (Enums.Weather)parse[n + 15].ToInt();
 
-            n += 15;
+            n += 16;
             // Load npc moves
             for (int i = 0; i < npc.Moves.Length; i++)
             {
