@@ -41,9 +41,9 @@ namespace Client.Logic.Updater
         ProgressBar pgbDownloadProgress;
 
         GitHubUpdater updater;
-        GitHubUpdateResult updateResult;
+        IReadOnlyList<GitHubUpdateResult> updateResult;
 
-        public winUpdater(GitHubUpdater updater, GitHubUpdateResult updateResult)
+        public winUpdater(GitHubUpdater updater, IReadOnlyList<GitHubUpdateResult> updateResult)
             : base("winUpdater")
         {
             this.updater = updater;
@@ -66,14 +66,17 @@ namespace Client.Logic.Updater
             packageScroller = new PackageScroller("packageScroller");
             packageScroller.Location = new Point(0, 0);
 
-            if (updateResult.UpdateAvailable)
+            if (updateResult.Count > 0)
             {
-                packageScroller.AddPackage(new PackageInfo()
+                foreach (var package in updateResult)
                 {
-                    Name = "Client",
-                    PublishDate = updateResult.PublishDate,
-                    Size = updateResult.Size
-                });
+                    packageScroller.AddPackage(new PackageInfo()
+                    {
+                        Name = package.PackageName,
+                        PublishDate = package.PublishDate,
+                        Size = package.Size
+                    });
+                }
             }
             packageScroller.PackageButtonSelected += new EventHandler<PackageButtonSelectedEventArgs>(packageScroller_PackageButtonSelected);
 

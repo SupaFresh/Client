@@ -445,6 +445,7 @@
     <Compile Include="Updater\GitHubUpdater.cs" />
     <Compile Include="Updater\GitHubUpdateResult.cs" />
     <Compile Include="Updater\UpdateEngine.cs" />
+    <Compile Include="Updater\UpdatePackageDefinition.cs" />
     <Compile Include="Updater\Widgets\PackageButton.cs" />
     <Compile Include="Updater\Widgets\PackageButtonSelectedEventArgs.cs" />
     <Compile Include="Updater\Widgets\PackageScroller.cs" />
@@ -605,6 +606,6 @@
       <AssetFiles Include="..\resources\**\*" />
     </ItemGroup>
     <Copy SourceFiles="@(DllFiles)" DestinationFolder="$(OutputPath)%(RecursiveDir)" />
-    <Copy SourceFiles="@(AssetFiles)" DestinationFolder="$(OutputPath)%(RecursiveDir)" />
+    <Copy Condition=" '$(Configuration)' == 'Debug' " SourceFiles="@(AssetFiles)" DestinationFolder="$(OutputPath)%(RecursiveDir)" />
   </Target>
 </Project>
