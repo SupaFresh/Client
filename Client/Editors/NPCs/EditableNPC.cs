@@ -80,6 +80,8 @@ namespace Client.Logic.Editors.NPCs
         public Enums.Direction SpawnDirection { get; set; }
         public Enums.Weather SpawnWeather { get; set; }
 
+        public int Story { get; set; }
+
         #endregion Properties
     }
 }

@@ -236,7 +236,9 @@ namespace Client.Logic
             Shopkeeper = 3,
             Guard = 4,
             Scripted = 5,
-            FullyScriptedAI = 6
+            FullyScriptedAI = 6,
+            FleeOnSight = 7,
+            Story = 8
         }
 
         public enum Rank

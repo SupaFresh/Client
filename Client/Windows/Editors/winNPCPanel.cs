@@ -248,7 +248,7 @@ namespace Client.Logic.Windows.Editors
             cmbBehaviour = new ComboBox("cmbBehaviour");
             cmbBehaviour.Location = new Point(75, lblBehaviour.Y);
             cmbBehaviour.Size = new System.Drawing.Size(200, 15);
-            for (int i = 0; i < 7; i++)
+            for (int i = 0; i < Enum.GetNames(typeof(Enums.NpcBehavior)).Length; i++)
             {
                 cmbBehaviour.Items.Add(new ListBoxTextItem(Graphics.FontManager.LoadFont("tahoma", 10), Enum.GetName(typeof(Enums.NpcBehavior), i)));
             }
@@ -515,8 +515,9 @@ namespace Client.Logic.Windows.Editors
             npc.SpawnsAtNight = parse[n + 13].ToBool();
             npc.SpawnDirection = (Enums.Direction)parse[n + 14].ToInt();
             npc.SpawnWeather = (Enums.Weather)parse[n + 15].ToInt();
+            npc.Story = parse[n + 16].ToInt();
 
-            n += 16;
+            n += 17;
             // Load npc moves
             for (int i = 0; i < npc.Moves.Length; i++)
             {
