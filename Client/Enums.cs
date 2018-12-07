@@ -530,6 +530,12 @@ namespace Client.Logic
             RealTime,
             TurnBased
         }
+        
+        public enum MapEffect
+        {
+            None = 0,
+            Petals = 1
+        }
 
         #endregion Enumerations
     }

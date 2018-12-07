@@ -751,7 +751,8 @@ namespace Client.Logic.Network
                 map.MaxNpcs.ToString(),
                 map.NpcSpawnTime.ToString(),
                 map.Instanced.ToIntString(),
-                map.YouTubeMusicID
+                map.YouTubeMusicID, 
+                ((int)map.Effect).ToString()
                 );
 
             for (y = 0; y <= map.MaxY; y++)

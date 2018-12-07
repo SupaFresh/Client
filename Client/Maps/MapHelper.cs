@@ -90,7 +90,7 @@ namespace Client.Logic.Maps
                         case "mapdata":
                             {
                                 headerFound = true;
-                                if (parse[1].ToLower() != "v12")
+                                if (parse[1].ToLower() != "v13")
                                 {
                                     System.IO.File.Delete(filePath);
                                     return null;
@@ -132,6 +132,7 @@ namespace Client.Logic.Maps
                                 map.Instanced = parse[20].ToBool();
                                 map.YouTubeMusicID = parse[21];
                                 map.GameplayMode = (Enums.GameplayMode)parse[22].ToInt();
+                                map.Effect = (Enums.MapEffect)parse[23].ToInt();
                             }
                             break;
                         case "npcsettings":
@@ -304,8 +305,9 @@ namespace Client.Logic.Maps
             map.ImpersonatingMap = parse[n + 22];
             map.YouTubeMusicID = parse[n + 23];
             map.GameplayMode = (Enums.GameplayMode)parse[n + 24].ToInt();
+            map.Effect = (Enums.MapEffect)parse[n + 25].ToInt();
 
-            n += 25;
+            n += 26;
 
             for (int y = 0; y <= map.MaxY; y++)
             {
@@ -552,12 +554,12 @@ namespace Client.Logic.Maps
             string filePath = IO.Paths.CreateOSPath(IO.Paths.MapPath + "Map-" + map.MapID.ToString() + ".dat");
             StringBuilder writer = new StringBuilder();
 
-            writer.AppendLine("MapData|V12|" + map.Revision.ToString() + "|" + map.MaxX.ToString() + "|" + map.MaxY.ToString() + "|");
+            writer.AppendLine("MapData|V13|" + map.Revision.ToString() + "|" + map.MaxX.ToString() + "|" + map.MaxY.ToString() + "|");
             writer.AppendLine("Data|" + map.Name + "|" + ((int)map.Moral).ToString() + "|" + map.Up.ToString() + "|" + map.Down.ToString() + "|" +
                               map.Left.ToString() + "|" + map.Right.ToString() + "|" + map.Music + "|" + map.Indoors.ToString() +
                               "|" + map.Owner + "|" + ((int)map.Weather).ToString() + "|" + map.Darkness.ToString() + "|" +
                               map.HungerEnabled.ToIntString() + "|" + map.RecruitEnabled.ToIntString() + "|" + map.ExpEnabled.ToIntString() + "|" + map.TimeLimit.ToString() + "|" + map.DungeonIndex.ToString() + "|" + map.MinNpcs.ToString() + "|" + map.MaxNpcs.ToString() + "|" +
-                              map.NpcSpawnTime.ToString() + "|" + map.Instanced.ToIntString() + "|" + map.YouTubeMusicID + "|" + ((int)map.GameplayMode).ToString() + "|");
+                              map.NpcSpawnTime.ToString() + "|" + map.Instanced.ToIntString() + "|" + map.YouTubeMusicID + "|" + ((int)map.GameplayMode).ToString() + "|" + ((int)map.Effect).ToString() + "|");
             //string npcData = "NpcData|";
             //string spawnXData = "SpawnX|";
             //string spawnYData = "SpawnY|";
@@ -578,8 +580,8 @@ namespace Client.Logic.Maps
                     writer.AppendLine("Tile|" + x + "|" + y + "|" + tile.Ground + "|" + tile.GroundAnim + "|" +
                         tile.Mask + "|" + tile.Anim + "|" + tile.Mask2 + "|" + tile.M2Anim + "|" + tile.Mask3 + "|" + tile.M3Anim + "|" + tile.Mask4 + "|" + tile.M4Anim + "|" + tile.Mask5 + "|" + tile.M5Anim + "|" +
                         tile.Fringe + "|" + tile.FAnim + "|" + tile.Fringe2 + "|" + tile.F2Anim + "|" + tile.Fringe3 + "|" + tile.F3Anim + "|" + tile.Fringe4 + "|" + tile.F4Anim + "|" + tile.Fringe5 + "|" + tile.F5Anim + "|" +
-                        ((int)tile.Type).ToString() + "|" + tile.Data1 + "|" + tile.Data2 + "|" + tile.Data3 + "|" + tile.String1 + "|" + tile.String2 + "|" + tile.String3 + "|" + tile.RDungeonMapValue + "|" + 
-                        tile.GroundSet + "|" + tile.GroundAnimSet + "|" + 
+                        ((int)tile.Type).ToString() + "|" + tile.Data1 + "|" + tile.Data2 + "|" + tile.Data3 + "|" + tile.String1 + "|" + tile.String2 + "|" + tile.String3 + "|" + tile.RDungeonMapValue + "|" +
+                        tile.GroundSet + "|" + tile.GroundAnimSet + "|" +
                         tile.MaskSet + "|" + tile.AnimSet + "|" + tile.Mask2Set + "|" + tile.M2AnimSet + "|" + tile.Mask3Set + "|" + tile.M3AnimSet + "|" + tile.Mask4Set + "|" + tile.M4AnimSet + "|" + tile.Mask5Set + "|" + tile.M5AnimSet + "|" +
                         tile.FringeSet + "|" + tile.FAnimSet + "|" + tile.Fringe2Set + "|" + tile.F2AnimSet + "|" + tile.Fringe3Set + "|" + tile.F3AnimSet + "|" + tile.Fringe4Set + "|" + tile.F4AnimSet + "|" + tile.Fringe5Set + "|" + tile.F5AnimSet + "|");
                 }
