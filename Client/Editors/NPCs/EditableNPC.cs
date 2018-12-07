@@ -81,6 +81,7 @@ namespace Client.Logic.Editors.NPCs
         public Enums.Weather SpawnWeather { get; set; }
 
         public int Story { get; set; }
+        public int Shop { get; set; }
 
         #endregion Properties
     }
