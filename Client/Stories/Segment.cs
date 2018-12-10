@@ -126,6 +126,9 @@ namespace Client.Logic.Stories
                 case Enums.StoryAction.ChangePlayerDir:
                     specific = new ChangePlayerDirectionSegment();
                     break;
+                case Enums.StoryAction.PlayerSay:
+                    specific = new PlayerSaySegment();
+                    break;
             }
             if (specific != null)
             {

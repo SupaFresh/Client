@@ -408,6 +408,7 @@
     <Compile Include="Stories\Segments\MovePlayerSegment.cs" />
     <Compile Include="Stories\Segments\DeleteFNPCSegment.cs" />
     <Compile Include="Stories\Segments\GoToSegmentSegment.cs" />
+    <Compile Include="Stories\Segments\PlayerSaySegment.cs" />
     <Compile Include="Stories\Segments\WarpFNPCSegment.cs" />
     <Compile Include="Stories\Segments\MoveFNPCSegment.cs" />
     <Compile Include="Stories\Segments\CreateFNPCSegment.cs" />

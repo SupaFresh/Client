@@ -312,7 +312,11 @@ namespace Client.Logic
             ResetCamera = 29,
             AddTriggerEvent = 30,
             MovePlayer = 31,
-            ChangePlayerDir = 32
+            ChangePlayerDir = 32,
+            PadlockChapter = 33,
+            ExitStory = 34,
+            HasInventoryItem = 35,
+            PlayerSay = 36
         }
 
         public enum TargetType
