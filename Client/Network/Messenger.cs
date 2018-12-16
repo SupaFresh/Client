@@ -1223,7 +1223,8 @@ namespace Client.Logic.Network
                 ((int)npc.SpawnDirection).ToString(),
                 ((int)npc.SpawnWeather).ToString(),
                 npc.Story.ToString(),
-                npc.Shop.ToString()
+                npc.Shop.ToString(),
+                npc.DeathStory.ToString()
             );
 
             for (int i = 0; i < npc.Moves.Length; i++)

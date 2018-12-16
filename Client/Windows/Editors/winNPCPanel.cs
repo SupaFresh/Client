@@ -517,8 +517,9 @@ namespace Client.Logic.Windows.Editors
             npc.SpawnWeather = (Enums.Weather)parse[n + 15].ToInt();
             npc.Story = parse[n + 16].ToInt();
             npc.Shop = parse[n + 17].ToInt();
+            npc.DeathStory = parse[n + 18].ToInt();
 
-            n += 18;
+            n += 19;
             // Load npc moves
             for (int i = 0; i < npc.Moves.Length; i++)
             {

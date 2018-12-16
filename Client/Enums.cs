@@ -238,7 +238,8 @@ namespace Client.Logic
             Scripted = 5,
             FullyScriptedAI = 6,
             FleeOnSight = 7,
-            Story = 8
+            Story = 8,
+            Boss = 9
         }
 
         public enum Rank
