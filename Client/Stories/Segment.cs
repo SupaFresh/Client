@@ -129,6 +129,9 @@ namespace Client.Logic.Stories
                 case Enums.StoryAction.PlayerSay:
                     specific = new PlayerSaySegment();
                     break;
+                case Enums.StoryAction.SpawnNPC:
+                    specific = new SpawnNPCSegment();
+                    break;
             }
             if (specific != null)
             {
