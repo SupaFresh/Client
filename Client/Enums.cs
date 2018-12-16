@@ -318,7 +318,8 @@ namespace Client.Logic
             ExitStory = 34,
             HasInventoryItem = 35,
             PlayerSay = 36,
-            SpawnNPC = 37
+            SpawnNPC = 37,
+            UnblockTile = 38
         }
 
         public enum TargetType

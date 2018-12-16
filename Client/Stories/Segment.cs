@@ -132,6 +132,9 @@ namespace Client.Logic.Stories
                 case Enums.StoryAction.SpawnNPC:
                     specific = new SpawnNPCSegment();
                     break;
+                case Enums.StoryAction.UnblockTile:
+                    specific = new UnblockTileSegment();
+                    break;
             }
             if (specific != null)
             {
