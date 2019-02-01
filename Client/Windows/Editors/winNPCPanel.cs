@@ -51,6 +51,10 @@ namespace Client.Logic.Windows.Editors
         TextBox txtName;
         Label lblAttackSay;
         TextBox txtAttackSay;
+        Label lblAttackSay2;
+        TextBox txtAttackSay2;
+        Label lblAttackSay3;
+        TextBox txtAttackSay3;
         Label lblForm;
         NumericUpDown nudForm;
         Label lblSpecies;
@@ -177,6 +181,28 @@ namespace Client.Logic.Windows.Editors
             txtAttackSay.Size = new System.Drawing.Size(200, 15);
             txtAttackSay.Location = new Point(75, 25);
             txtAttackSay.Font = Logic.Graphics.FontManager.LoadFont("tahoma", 12);
+
+            lblAttackSay2 = new Label("lblAttackSay2");
+            lblAttackSay2.Font = Logic.Graphics.FontManager.LoadFont("tahoma", 10);
+            lblAttackSay2.Text = "Attack Say2:";
+            lblAttackSay2.AutoSize = true;
+            lblAttackSay2.Location = new Point(10, 25);
+
+            txtAttackSay2 = new TextBox("txtAttackSay2");
+            txtAttackSay2.Size = new System.Drawing.Size(200, 15);
+            txtAttackSay2.Location = new Point(75, 25);
+            txtAttackSay2.Font = Logic.Graphics.FontManager.LoadFont("tahoma", 12);
+
+            lblAttackSay3 = new Label("lblAttackSay3");
+            lblAttackSay3.Font = Logic.Graphics.FontManager.LoadFont("tahoma", 10);
+            lblAttackSay3.Text = "Attack Say3:";
+            lblAttackSay3.AutoSize = true;
+            lblAttackSay3.Location = new Point(10, 25);
+
+            txtAttackSay3 = new TextBox("txtAttackSay3");
+            txtAttackSay3.Size = new System.Drawing.Size(200, 15);
+            txtAttackSay3.Location = new Point(75, 25);
+            txtAttackSay3.Font = Logic.Graphics.FontManager.LoadFont("tahoma", 12);
 
             lblForm = new Label("lblForm");
             lblForm.Font = Logic.Graphics.FontManager.LoadFont("tahoma", 10);
@@ -390,6 +416,10 @@ namespace Client.Logic.Windows.Editors
             pnlNPCEditor.AddWidget(txtName);
             pnlNPCEditor.AddWidget(lblAttackSay);
             pnlNPCEditor.AddWidget(txtAttackSay);
+            pnlNPCEditor.AddWidget(lblAttackSay2);
+            pnlNPCEditor.AddWidget(txtAttackSay2);
+            pnlNPCEditor.AddWidget(lblAttackSay3);
+            pnlNPCEditor.AddWidget(txtAttackSay3);
             pnlNPCEditor.AddWidget(lblForm);
             pnlNPCEditor.AddWidget(nudForm);
             pnlNPCEditor.AddWidget(lblSpecies);
@@ -541,6 +571,8 @@ namespace Client.Logic.Windows.Editors
 
             txtName.Text = npc.Name;
             txtAttackSay.Text = npc.AttackSay;
+            txtAttackSay2.Text = npc.AttackSay2;
+            txtAttackSay3.Text = npc.AttackSay3;
             nudForm.Value = npc.Form;
             nudSpecies.Value = npc.Species;
             nudShinyChance.Value = npc.ShinyChance;
@@ -633,6 +665,8 @@ namespace Client.Logic.Windows.Editors
         {
             npc.Name = txtName.Text;
             npc.AttackSay = txtAttackSay.Text;
+            npc.AttackSay2 = txtAttackSay2.Text;
+            npc.AttackSay3 = txtAttackSay3.Text;
             npc.Form = nudForm.Value;
             npc.Species = nudSpecies.Value;
             npc.ShinyChance = nudShinyChance.Value;
