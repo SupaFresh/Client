@@ -101,13 +101,13 @@ namespace Client.Logic.Windows.Editors
             this.TitleBar.Text = "NPC Panel";
 
             pnlNPCList = new Panel("pnlNPCList");
-            pnlNPCList.Size = new System.Drawing.Size(200, 230);
+            pnlNPCList.Size = new System.Drawing.Size(200, 270);
             pnlNPCList.Location = new Point(0, 0);
             pnlNPCList.BackColor = Color.White;
             pnlNPCList.Visible = true;
 
             pnlNPCEditor = new Panel("pnlNPCEditor");
-            pnlNPCEditor.Size = new System.Drawing.Size(300, 420);
+            pnlNPCEditor.Size = new System.Drawing.Size(300, 460);
             pnlNPCEditor.Location = new Point(0, 0);
             pnlNPCEditor.BackColor = Color.White;
             pnlNPCEditor.Visible = false;
