@@ -93,7 +93,7 @@ namespace Client.Logic.Windows.Editors
         {
             this.Windowed = true;
             this.ShowInWindowSwitcher = false;
-            this.Size = new System.Drawing.Size(200, 230);
+            this.Size = new System.Drawing.Size(200, 270);
             this.Location = new System.Drawing.Point(210, WindowSwitcher.GameWindow.ActiveTeam.Y + WindowSwitcher.GameWindow.ActiveTeam.Height + 0);
             this.AlwaysOnTop = true;
             this.TitleBar.CloseButton.Visible = true;
@@ -186,33 +186,33 @@ namespace Client.Logic.Windows.Editors
             lblAttackSay2.Font = Logic.Graphics.FontManager.LoadFont("tahoma", 10);
             lblAttackSay2.Text = "Attack Say2:";
             lblAttackSay2.AutoSize = true;
-            lblAttackSay2.Location = new Point(10, 25);
+            lblAttackSay2.Location = new Point(10, 45);
 
             txtAttackSay2 = new TextBox("txtAttackSay2");
             txtAttackSay2.Size = new System.Drawing.Size(200, 15);
-            txtAttackSay2.Location = new Point(75, 25);
+            txtAttackSay2.Location = new Point(75, 45);
             txtAttackSay2.Font = Logic.Graphics.FontManager.LoadFont("tahoma", 12);
 
             lblAttackSay3 = new Label("lblAttackSay3");
             lblAttackSay3.Font = Logic.Graphics.FontManager.LoadFont("tahoma", 10);
             lblAttackSay3.Text = "Attack Say3:";
             lblAttackSay3.AutoSize = true;
-            lblAttackSay3.Location = new Point(10, 25);
+            lblAttackSay3.Location = new Point(10, 65);
 
             txtAttackSay3 = new TextBox("txtAttackSay3");
             txtAttackSay3.Size = new System.Drawing.Size(200, 15);
-            txtAttackSay3.Location = new Point(75, 25);
+            txtAttackSay3.Location = new Point(75, 65);
             txtAttackSay3.Font = Logic.Graphics.FontManager.LoadFont("tahoma", 12);
 
             lblForm = new Label("lblForm");
             lblForm.Font = Logic.Graphics.FontManager.LoadFont("tahoma", 10);
             lblForm.Text = "Form:";
             lblForm.AutoSize = true;
-            lblForm.Location = new Point(10, 45);
+            lblForm.Location = new Point(10, 85);
 
             nudForm = new NumericUpDown("nudForm");
             nudForm.Maximum = 1000;
-            nudForm.Location = new Point(75, 45);
+            nudForm.Location = new Point(75, 85);
             nudForm.Size = new System.Drawing.Size(200, 15);
             nudForm.ValueChanged += new EventHandler<ValueChangedEventArgs>(nudForm_ValueChanged);
 
@@ -220,10 +220,10 @@ namespace Client.Logic.Windows.Editors
             lblSpecies.Font = Graphics.FontManager.LoadFont("tahoma", 10);
             lblSpecies.Text = "Species:";
             lblSpecies.AutoSize = true;
-            lblSpecies.Location = new Point(10, 65);
+            lblSpecies.Location = new Point(10, 105);
 
             nudSpecies = new NumericUpDown("nudSpecies");
-            nudSpecies.Location = new Point(75, 65);
+            nudSpecies.Location = new Point(75, 105);
             nudSpecies.Size = new System.Drawing.Size(200, 15);
             nudSpecies.Minimum = -1;
             nudSpecies.Maximum = 1000;
@@ -233,35 +233,35 @@ namespace Client.Logic.Windows.Editors
             lblRange.Font = Logic.Graphics.FontManager.LoadFont("tahoma", 10);
             lblRange.Text = "Shiny:";
             lblRange.AutoSize = true;
-            lblRange.Location = new Point(10, 85);
+            lblRange.Location = new Point(10, 125);
 
             nudShinyChance = new NumericUpDown("nudShinyChance");
-            nudShinyChance.Location = new Point(75, 85);
+            nudShinyChance.Location = new Point(75, 125);
             nudShinyChance.Size = new System.Drawing.Size(200, 15);
             nudShinyChance.Maximum = Int32.MaxValue;
             nudShinyChance.Minimum = 0;
 
             chkSpawnsAtDawn = new CheckBox("chkSpawnsAtDawn");
             chkSpawnsAtDawn.Size = new Size(60, 17);
-            chkSpawnsAtDawn.Location = new Point(75, 105);
+            chkSpawnsAtDawn.Location = new Point(75, 145);
             chkSpawnsAtDawn.Font = Graphics.FontManager.LoadFont("tahoma", 10);
             chkSpawnsAtDawn.Text = "Dawn";
 
             chkSpawnsAtDay = new CheckBox("chkSpawnsAtDay");
             chkSpawnsAtDay.Size = new Size(60, 17);
-            chkSpawnsAtDay.Location = new Point(175, 105);
+            chkSpawnsAtDay.Location = new Point(175, 145);
             chkSpawnsAtDay.Font = Graphics.FontManager.LoadFont("tahoma", 10);
             chkSpawnsAtDay.Text = "Day";
 
             chkSpawnsAtDusk = new CheckBox("chkSpawnsAtDusk");
             chkSpawnsAtDusk.Size = new Size(60, 17);
-            chkSpawnsAtDusk.Location = new Point(75, 125);
+            chkSpawnsAtDusk.Location = new Point(75, 165);
             chkSpawnsAtDusk.Font = Graphics.FontManager.LoadFont("tahoma", 10);
             chkSpawnsAtDusk.Text = "Dusk";
 
             chkSpawnsAtNight = new CheckBox("chkSpawnsAtNight");
             chkSpawnsAtNight.Size = new Size(60, 17);
-            chkSpawnsAtNight.Location = new Point(175, 125);
+            chkSpawnsAtNight.Location = new Point(175, 165);
             chkSpawnsAtNight.Font = Graphics.FontManager.LoadFont("tahoma", 10);
             chkSpawnsAtNight.Text = "Night";
 
