@@ -126,6 +126,15 @@ namespace Client.Logic.Stories
                 case Enums.StoryAction.ChangePlayerDir:
                     specific = new ChangePlayerDirectionSegment();
                     break;
+                case Enums.StoryAction.PlayerSay:
+                    specific = new PlayerSaySegment();
+                    break;
+                case Enums.StoryAction.SpawnNPC:
+                    specific = new SpawnNPCSegment();
+                    break;
+                case Enums.StoryAction.UnblockTile:
+                    specific = new UnblockTileSegment();
+                    break;
             }
             if (specific != null)
             {

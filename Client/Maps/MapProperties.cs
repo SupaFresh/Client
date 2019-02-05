@@ -47,6 +47,7 @@ namespace Client.Logic.Maps
         public int MinNpcs { get; set; }
         public int MaxNpcs { get; set; }
         public int NpcSpawnTime { get; set; }
+        public Enums.MapEffect Effect { get; set; }
 
         public MapProperties()
         {

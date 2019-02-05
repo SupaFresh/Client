@@ -17,45 +17,85 @@ namespace Client.Logic.Updater
 
         string baseDirectory;
 
+        UpdatePackageDefinition[] packages = new UpdatePackageDefinition[]
+        {
+            new UpdatePackageDefinition("client", "PMDShift", "Client", "PMDShift.zip"),
+            new UpdatePackageDefinition("gfx", "PMDShift", "GFX", "GFX.zip")
+        };
+
         public GitHubUpdater()
         {
             this.client = new GitHubClient(new ProductHeaderValue("pmdcp"));
             this.baseDirectory = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
         }
 
-        public async Task<GitHubUpdateResult> CheckForUpdates()
+        public async Task<List<GitHubUpdateResult>> CheckForUpdates()
         {
-            var release = await client.Repository.Release.GetLatest("PMDShift", "Client");
+            var result = new List<GitHubUpdateResult>();
 
-            ReleaseAsset clientPackage = release.Assets.Where(x => x.Name == "PMDShift.zip").FirstOrDefault();
-
-            if (clientPackage == null)
+            foreach (var package in packages)
             {
-                return new GitHubUpdateResult(false);
+                var release = await client.Repository.Release.GetLatest(package.Owner, package.Repository);
+
+                ReleaseAsset clientPackage = release.Assets.Where(x => x.Name == package.PackageName).FirstOrDefault();
+
+                if (clientPackage == null)
+                {
+                    continue;
+                }
+
+                if (GetLastUpdateTime(package.Id) < clientPackage.CreatedAt.UtcDateTime)
+                {
+                    result.Add(new GitHubUpdateResult(package.Id, package.Repository, clientPackage.BrowserDownloadUrl, clientPackage.CreatedAt.UtcDateTime, clientPackage.Size));
+                }
             }
 
-            if (IO.Options.LastUpdateTime < clientPackage.CreatedAt.UtcDateTime)
+            return result;
+        }
+
+        private DateTime GetLastUpdateTime(string packageId)
+        {
+            switch (packageId)
             {
-                return new GitHubUpdateResult(true, clientPackage.BrowserDownloadUrl, clientPackage.CreatedAt.UtcDateTime, clientPackage.Size);
-            } else
+                case "client":
+                    return IO.Options.LastClientUpdateTime;
+                case "gfx":
+                    return IO.Options.LastGFXUpdateTime;
+            }
+
+            throw new InvalidOperationException();
+        }
+
+        private void SetLastUpdateTime(string packageId, DateTime dateTime)
+        {
+            switch (packageId)
             {
-                return new GitHubUpdateResult(false);
+                case "client":
+                    IO.Options.LastClientUpdateTime = dateTime;
+                    break;
+                case "gfx":
+                    IO.Options.LastGFXUpdateTime = dateTime;
+                    break;
             }
         }
 
-        public async Task PerformUpdate(GitHubUpdateResult updateResult, Action<string> statusCallback)
+        public async Task PerformUpdate(IReadOnlyList<GitHubUpdateResult> updateResults, Action<string> statusCallback)
+        {
+            for (var i = 0; i < updateResults.Count; i++)
+            {
+                await PerformUpdate(i, updateResults.Count, updateResults[i], statusCallback);
+            }
+        }
+
+        public async Task PerformUpdate(int index, int total, GitHubUpdateResult updateResult, Action<string> statusCallback)
         {
             var packageTempFile = Path.GetTempFileName();
+
+            statusCallback($"Downloading update {index + 1} of {total}...");
 
             using (var webClient = new WebClient())
             {
                 await webClient.DownloadFileTaskAsync(updateResult.PackageDownloadUrl, packageTempFile);
-            }
-
-            var binaries = Directory.EnumerateFiles(baseDirectory, "*.dll", SearchOption.TopDirectoryOnly).Concat(Directory.EnumerateFiles(baseDirectory, "*.exe", SearchOption.TopDirectoryOnly));
-            foreach (var binary in binaries)
-            {
-                File.Move(binary, binary + ".ToDelete");
             }
 
             statusCallback("Extracting files... please wait...");
@@ -76,11 +116,41 @@ namespace Client.Logic.Updater
                         {
                             try
                             {
-                                using (var entryFileSteam = new FileStream(Path.Combine(baseDirectory, entry.FullName), System.IO.FileMode.Create))
+                                string fullEntryPath;
+                                if (updateResult.PackageId == "gfx")
+                                {
+                                    fullEntryPath = Path.Combine(baseDirectory, "GFX", entry.FullName);
+                                }
+                                else
+                                {
+                                    fullEntryPath = Path.Combine(baseDirectory, entry.FullName);
+                                }
+
+                                if (!Directory.Exists(Path.GetDirectoryName(fullEntryPath)))
+                                {
+                                    Directory.CreateDirectory(Path.GetDirectoryName(fullEntryPath));
+                                }
+
+                                switch (Path.GetExtension(fullEntryPath))
+                                {
+                                    case ".dll":
+                                    case ".exe":
+                                        {
+                                            var targetFile = $"{fullEntryPath}.ToDelete";
+                                            if (File.Exists(targetFile))
+                                            {
+                                                File.Delete(targetFile);
+                                            }
+                                            File.Move(fullEntryPath, targetFile);
+                                        }
+                                        break;
+                                }
+
+                                using (var entryFileSteam = new FileStream(fullEntryPath, System.IO.FileMode.Create))
                                 {
                                     using (var entryStream = entry.Open())
                                     {
-                                        entryStream.CopyTo(entryFileSteam);
+                                        await entryStream.CopyToAsync(entryFileSteam);
                                     }
                                 }
                             }
@@ -92,8 +162,10 @@ namespace Client.Logic.Updater
                 }
             }
 
-            IO.Options.LastUpdateTime = updateResult.PublishDate;
+            SetLastUpdateTime(updateResult.PackageId, updateResult.PublishDate);
             IO.Options.SaveXml();
+
+            File.Delete(packageTempFile);
         }
     }
 }

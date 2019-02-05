@@ -250,6 +250,7 @@ namespace Client.Logic.Maps
 
         public string YouTubeMusicID { get; set; }
         public Enums.GameplayMode GameplayMode { get; set; }
+        public Enums.MapEffect Effect { get; set; }
 
         #endregion Properties
 
@@ -304,7 +305,7 @@ namespace Client.Logic.Maps
             MinNpcs = properties.MinNpcs;
             MaxNpcs = properties.MaxNpcs;
             NpcSpawnTime = properties.NpcSpawnTime;
-
+            Effect = properties.Effect;
 
             Npc = new List<MapNpcSettings>();
             for (int i = 0; i < properties.Npcs.Count; i++)
@@ -355,7 +356,7 @@ namespace Client.Logic.Maps
             properties.MinNpcs = MinNpcs;
             properties.MaxNpcs = MaxNpcs;
             properties.NpcSpawnTime = NpcSpawnTime;
-
+            properties.Effect = Effect;
 
             for (int i = 0; i < Npc.Count; i++)
             {

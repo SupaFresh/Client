@@ -51,6 +51,10 @@ namespace Client.Logic.Windows.Editors
         TextBox txtName;
         Label lblAttackSay;
         TextBox txtAttackSay;
+        Label lblAttackSay2;
+        TextBox txtAttackSay2;
+        Label lblAttackSay3;
+        TextBox txtAttackSay3;
         Label lblForm;
         NumericUpDown nudForm;
         Label lblSpecies;
@@ -89,7 +93,7 @@ namespace Client.Logic.Windows.Editors
         {
             this.Windowed = true;
             this.ShowInWindowSwitcher = false;
-            this.Size = new System.Drawing.Size(200, 230);
+            this.Size = new System.Drawing.Size(200, 270);
             this.Location = new System.Drawing.Point(210, WindowSwitcher.GameWindow.ActiveTeam.Y + WindowSwitcher.GameWindow.ActiveTeam.Height + 0);
             this.AlwaysOnTop = true;
             this.TitleBar.CloseButton.Visible = true;
@@ -97,13 +101,13 @@ namespace Client.Logic.Windows.Editors
             this.TitleBar.Text = "NPC Panel";
 
             pnlNPCList = new Panel("pnlNPCList");
-            pnlNPCList.Size = new System.Drawing.Size(200, 230);
+            pnlNPCList.Size = new System.Drawing.Size(200, 270);
             pnlNPCList.Location = new Point(0, 0);
             pnlNPCList.BackColor = Color.White;
             pnlNPCList.Visible = true;
 
             pnlNPCEditor = new Panel("pnlNPCEditor");
-            pnlNPCEditor.Size = new System.Drawing.Size(300, 420);
+            pnlNPCEditor.Size = new System.Drawing.Size(300, 460);
             pnlNPCEditor.Location = new Point(0, 0);
             pnlNPCEditor.BackColor = Color.White;
             pnlNPCEditor.Visible = false;
@@ -178,15 +182,37 @@ namespace Client.Logic.Windows.Editors
             txtAttackSay.Location = new Point(75, 25);
             txtAttackSay.Font = Logic.Graphics.FontManager.LoadFont("tahoma", 12);
 
+            lblAttackSay2 = new Label("lblAttackSay2");
+            lblAttackSay2.Font = Logic.Graphics.FontManager.LoadFont("tahoma", 10);
+            lblAttackSay2.Text = "Attack Say2:";
+            lblAttackSay2.AutoSize = true;
+            lblAttackSay2.Location = new Point(10, 45);
+
+            txtAttackSay2 = new TextBox("txtAttackSay2");
+            txtAttackSay2.Size = new System.Drawing.Size(200, 15);
+            txtAttackSay2.Location = new Point(75, 45);
+            txtAttackSay2.Font = Logic.Graphics.FontManager.LoadFont("tahoma", 12);
+
+            lblAttackSay3 = new Label("lblAttackSay3");
+            lblAttackSay3.Font = Logic.Graphics.FontManager.LoadFont("tahoma", 10);
+            lblAttackSay3.Text = "Attack Say3:";
+            lblAttackSay3.AutoSize = true;
+            lblAttackSay3.Location = new Point(10, 65);
+
+            txtAttackSay3 = new TextBox("txtAttackSay3");
+            txtAttackSay3.Size = new System.Drawing.Size(200, 15);
+            txtAttackSay3.Location = new Point(75, 65);
+            txtAttackSay3.Font = Logic.Graphics.FontManager.LoadFont("tahoma", 12);
+
             lblForm = new Label("lblForm");
             lblForm.Font = Logic.Graphics.FontManager.LoadFont("tahoma", 10);
             lblForm.Text = "Form:";
             lblForm.AutoSize = true;
-            lblForm.Location = new Point(10, 45);
+            lblForm.Location = new Point(10, 85);
 
             nudForm = new NumericUpDown("nudForm");
             nudForm.Maximum = 1000;
-            nudForm.Location = new Point(75, 45);
+            nudForm.Location = new Point(75, 85);
             nudForm.Size = new System.Drawing.Size(200, 15);
             nudForm.ValueChanged += new EventHandler<ValueChangedEventArgs>(nudForm_ValueChanged);
 
@@ -194,48 +220,48 @@ namespace Client.Logic.Windows.Editors
             lblSpecies.Font = Graphics.FontManager.LoadFont("tahoma", 10);
             lblSpecies.Text = "Species:";
             lblSpecies.AutoSize = true;
-            lblSpecies.Location = new Point(10, 65);
+            lblSpecies.Location = new Point(10, 105);
 
             nudSpecies = new NumericUpDown("nudSpecies");
-            nudSpecies.Location = new Point(75, 65);
+            nudSpecies.Location = new Point(75, 105);
             nudSpecies.Size = new System.Drawing.Size(200, 15);
             nudSpecies.Minimum = -1;
-            nudSpecies.Maximum = 649;
+            nudSpecies.Maximum = 1000;
             nudForm.ValueChanged += new EventHandler<ValueChangedEventArgs>(nudSpecies_ValueChanged);
 
             lblRange = new Label("lblRange");
             lblRange.Font = Logic.Graphics.FontManager.LoadFont("tahoma", 10);
             lblRange.Text = "Shiny:";
             lblRange.AutoSize = true;
-            lblRange.Location = new Point(10, 85);
+            lblRange.Location = new Point(10, 125);
 
             nudShinyChance = new NumericUpDown("nudShinyChance");
-            nudShinyChance.Location = new Point(75, 85);
+            nudShinyChance.Location = new Point(75, 125);
             nudShinyChance.Size = new System.Drawing.Size(200, 15);
             nudShinyChance.Maximum = Int32.MaxValue;
             nudShinyChance.Minimum = 0;
 
             chkSpawnsAtDawn = new CheckBox("chkSpawnsAtDawn");
             chkSpawnsAtDawn.Size = new Size(60, 17);
-            chkSpawnsAtDawn.Location = new Point(75, 105);
+            chkSpawnsAtDawn.Location = new Point(75, 145);
             chkSpawnsAtDawn.Font = Graphics.FontManager.LoadFont("tahoma", 10);
             chkSpawnsAtDawn.Text = "Dawn";
 
             chkSpawnsAtDay = new CheckBox("chkSpawnsAtDay");
             chkSpawnsAtDay.Size = new Size(60, 17);
-            chkSpawnsAtDay.Location = new Point(175, 105);
+            chkSpawnsAtDay.Location = new Point(175, 145);
             chkSpawnsAtDay.Font = Graphics.FontManager.LoadFont("tahoma", 10);
             chkSpawnsAtDay.Text = "Day";
 
             chkSpawnsAtDusk = new CheckBox("chkSpawnsAtDusk");
             chkSpawnsAtDusk.Size = new Size(60, 17);
-            chkSpawnsAtDusk.Location = new Point(75, 125);
+            chkSpawnsAtDusk.Location = new Point(75, 165);
             chkSpawnsAtDusk.Font = Graphics.FontManager.LoadFont("tahoma", 10);
             chkSpawnsAtDusk.Text = "Dusk";
 
             chkSpawnsAtNight = new CheckBox("chkSpawnsAtNight");
             chkSpawnsAtNight.Size = new Size(60, 17);
-            chkSpawnsAtNight.Location = new Point(175, 125);
+            chkSpawnsAtNight.Location = new Point(175, 165);
             chkSpawnsAtNight.Font = Graphics.FontManager.LoadFont("tahoma", 10);
             chkSpawnsAtNight.Text = "Night";
 
@@ -248,7 +274,7 @@ namespace Client.Logic.Windows.Editors
             cmbBehaviour = new ComboBox("cmbBehaviour");
             cmbBehaviour.Location = new Point(75, lblBehaviour.Y);
             cmbBehaviour.Size = new System.Drawing.Size(200, 15);
-            for (int i = 0; i < 7; i++)
+            for (int i = 0; i < Enum.GetNames(typeof(Enums.NpcBehavior)).Length; i++)
             {
                 cmbBehaviour.Items.Add(new ListBoxTextItem(Graphics.FontManager.LoadFont("tahoma", 10), Enum.GetName(typeof(Enums.NpcBehavior), i)));
             }
@@ -390,6 +416,10 @@ namespace Client.Logic.Windows.Editors
             pnlNPCEditor.AddWidget(txtName);
             pnlNPCEditor.AddWidget(lblAttackSay);
             pnlNPCEditor.AddWidget(txtAttackSay);
+            pnlNPCEditor.AddWidget(lblAttackSay2);
+            pnlNPCEditor.AddWidget(txtAttackSay2);
+            pnlNPCEditor.AddWidget(lblAttackSay3);
+            pnlNPCEditor.AddWidget(txtAttackSay3);
             pnlNPCEditor.AddWidget(lblForm);
             pnlNPCEditor.AddWidget(nudForm);
             pnlNPCEditor.AddWidget(lblSpecies);
@@ -513,8 +543,13 @@ namespace Client.Logic.Windows.Editors
             npc.SpawnsAtDay = parse[n + 11].ToBool();
             npc.SpawnsAtDusk = parse[n + 12].ToBool();
             npc.SpawnsAtNight = parse[n + 13].ToBool();
+            npc.SpawnDirection = (Enums.Direction)parse[n + 14].ToInt();
+            npc.SpawnWeather = (Enums.Weather)parse[n + 15].ToInt();
+            npc.Story = parse[n + 16].ToInt();
+            npc.Shop = parse[n + 17].ToInt();
+            npc.DeathStory = parse[n + 18].ToInt();
 
-            n += 14;
+            n += 19;
             // Load npc moves
             for (int i = 0; i < npc.Moves.Length; i++)
             {
@@ -536,6 +571,8 @@ namespace Client.Logic.Windows.Editors
 
             txtName.Text = npc.Name;
             txtAttackSay.Text = npc.AttackSay;
+            txtAttackSay2.Text = npc.AttackSay2;
+            txtAttackSay3.Text = npc.AttackSay3;
             nudForm.Value = npc.Form;
             nudSpecies.Value = npc.Species;
             nudShinyChance.Value = npc.ShinyChance;
@@ -628,6 +665,8 @@ namespace Client.Logic.Windows.Editors
         {
             npc.Name = txtName.Text;
             npc.AttackSay = txtAttackSay.Text;
+            npc.AttackSay2 = txtAttackSay2.Text;
+            npc.AttackSay3 = txtAttackSay3.Text;
             npc.Form = nudForm.Value;
             npc.Species = nudSpecies.Value;
             npc.ShinyChance = nudShinyChance.Value;

@@ -49,6 +49,7 @@ namespace Client.Logic.Windows.Editors.MapEditor
         NumericUpDown nudDarkness;
         NumericUpDown nudTimeLimit;
         ComboBox cmbMapWeather;
+        ComboBox cmbMapEffect;
         ComboBox cmbMusic;
         Label lblMapMorality;
         Label lblMapDarkness;
@@ -384,6 +385,13 @@ namespace Client.Logic.Windows.Editors.MapEditor
             txtYouTubeMusicID.Size = new System.Drawing.Size(375, 30);
             txtYouTubeMusicID.Location = new Point(25, 260);
             txtYouTubeMusicID.Text = properties.YouTubeMusicID;
+
+            cmbMapEffect = new ComboBox("cmbMapEffect");
+            cmbMapEffect.Size = new System.Drawing.Size(150, 18);
+            cmbMapEffect.Location = new Point(20, 300);
+            cmbMapEffect.Items.Add(new ListBoxTextItem(Logic.Graphics.FontManager.LoadFont("PMDCP", 18), "None"));
+            cmbMapEffect.Items.Add(new ListBoxTextItem(Logic.Graphics.FontManager.LoadFont("PMDCP", 18), "Petals"));
+            cmbMapEffect.SelectItem((int)properties.Effect);
 
             btnPlay = new Button("btnPlay");
             btnPlay.Font = Logic.Graphics.FontManager.LoadFont("PMDCP", 18);
@@ -790,6 +798,7 @@ namespace Client.Logic.Windows.Editors.MapEditor
             pnlGeneral.AddWidget(btnCancel);
             pnlGeneral.AddWidget(lblYouTubeMusicID);
             pnlGeneral.AddWidget(txtYouTubeMusicID);
+            pnlGeneral.AddWidget(cmbMapEffect);
             #endregion
 
             #region NPC
@@ -1028,6 +1037,11 @@ namespace Client.Logic.Windows.Editors.MapEditor
             {
                 properties.Weather = (Enums.Weather)cmbMapWeather.SelectedIndex;
             }
+            if (cmbMapEffect.SelectedIndex > -1)
+            {
+                properties.Effect = (Enums.MapEffect)cmbMapEffect.SelectedIndex;
+            }
+            
             properties.Indoors = chkIndoors.Checked;
             properties.Belly = chkHunger.Checked;
             properties.Recruit = chkRecruit.Checked;

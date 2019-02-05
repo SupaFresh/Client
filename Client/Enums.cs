@@ -236,7 +236,10 @@ namespace Client.Logic
             Shopkeeper = 3,
             Guard = 4,
             Scripted = 5,
-            FullyScriptedAI = 6
+            FullyScriptedAI = 6,
+            FleeOnSight = 7,
+            Story = 8,
+            Boss = 9
         }
 
         public enum Rank
@@ -310,7 +313,13 @@ namespace Client.Logic
             ResetCamera = 29,
             AddTriggerEvent = 30,
             MovePlayer = 31,
-            ChangePlayerDir = 32
+            ChangePlayerDir = 32,
+            PadlockChapter = 33,
+            ExitStory = 34,
+            HasInventoryItem = 35,
+            PlayerSay = 36,
+            SpawnNPC = 37,
+            UnblockTile = 38
         }
 
         public enum TargetType
@@ -527,6 +536,12 @@ namespace Client.Logic
         {
             RealTime,
             TurnBased
+        }
+        
+        public enum MapEffect
+        {
+            None = 0,
+            Petals = 1
         }
 
         #endregion Enumerations

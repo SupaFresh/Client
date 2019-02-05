@@ -77,6 +77,13 @@ namespace Client.Logic.Editors.NPCs
 
         public string AIScript { get; set; }
 
+        public Enums.Direction SpawnDirection { get; set; }
+        public Enums.Weather SpawnWeather { get; set; }
+
+        public int Story { get; set; }
+        public int Shop { get; set; }
+        public int DeathStory { get; set; }
+
         #endregion Properties
     }
 }

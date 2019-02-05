@@ -259,7 +259,7 @@ namespace Client.Logic
 
                      var result = await updater.CheckForUpdates();
 
-                     if (result.UpdateAvailable)
+                     if (result.Count > 0)
                      {
                          WindowSwitcher.FindWindow("winLoading").Visible = false;
                          SdlDotNet.Widgets.WindowManager.AddWindow(new Updater.winUpdater(updater, result));

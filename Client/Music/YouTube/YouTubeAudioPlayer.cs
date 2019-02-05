@@ -26,16 +26,30 @@ namespace Client.Logic.Music.YouTube
 
         string playingSongID;
 
+        Thread interopThread;
+
         public YouTubeAudioPlayer()
         {
-            audioPlayerForm = new Form();
+            interopThread = new Thread(new ThreadStart(() =>
+            {
+                Application.EnableVisualStyles();
+                Application.SetCompatibleTextRenderingDefault(false);
 
-            webBrowser = new WebBrowser();
-            audioPlayerForm.Controls.Add(webBrowser);
+                audioPlayerForm = new Form();
 
-            // Initialize the form and generate the active-x control without displaying the form
-            // Yes, it's a hack
-            var ptr = audioPlayerForm.Handle;
+                webBrowser = new WebBrowser();
+                audioPlayerForm.Controls.Add(webBrowser);
+
+                // Initialize the form and generate the active-x control without displaying the form
+                // Yes, it's a hack
+                var ptr = audioPlayerForm.Handle;
+
+                Application.Run();
+            }));
+
+            interopThread.IsBackground = true;
+            interopThread.SetApartmentState(ApartmentState.STA);
+            interopThread.Start();
 
             StartWebserver();
         }

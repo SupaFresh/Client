@@ -751,7 +751,8 @@ namespace Client.Logic.Network
                 map.MaxNpcs.ToString(),
                 map.NpcSpawnTime.ToString(),
                 map.Instanced.ToIntString(),
-                map.YouTubeMusicID
+                map.YouTubeMusicID, 
+                ((int)map.Effect).ToString()
                 );
 
             for (y = 0; y <= map.MaxY; y++)
@@ -1218,7 +1219,12 @@ namespace Client.Logic.Network
                 npc.SpawnsAtDawn.ToIntString(),
                 npc.SpawnsAtDay.ToIntString(),
                 npc.SpawnsAtDusk.ToIntString(),
-                npc.SpawnsAtNight.ToIntString()
+                npc.SpawnsAtNight.ToIntString(),
+                ((int)npc.SpawnDirection).ToString(),
+                ((int)npc.SpawnWeather).ToString(),
+                npc.Story.ToString(),
+                npc.Shop.ToString(),
+                npc.DeathStory.ToString()
             );
 
             for (int i = 0; i < npc.Moves.Length; i++)

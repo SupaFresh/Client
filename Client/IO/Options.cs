@@ -32,7 +32,8 @@ namespace Client.Logic.IO
     {
         #region Properties
 
-        public static DateTime LastUpdateTime { get; set; }
+        public static DateTime LastClientUpdateTime { get; set; }
+        public static DateTime LastGFXUpdateTime { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether the client will auto save.
@@ -428,9 +429,14 @@ namespace Client.Logic.IO
                                         ActiveSkin = reader.ReadString();
                                     }
                                     break;
-                                case "LastUpdateTime":
+                                case "LastClientUpdateTime":
                                     {
-                                        LastUpdateTime = DateTime.FromBinary((long)reader.ReadString().ToUlng());
+                                        LastClientUpdateTime = DateTime.FromBinary((long)reader.ReadString().ToUlng());
+                                    }
+                                    break;
+                                case "LastGFXUpdateTime":
+                                    {
+                                        LastGFXUpdateTime = DateTime.FromBinary((long)reader.ReadString().ToUlng());
                                     }
                                     break;
                             }
@@ -489,7 +495,8 @@ namespace Client.Logic.IO
                 writer.WriteElementString("SpeechBubbles", SpeechBubbles.ToString());
                 writer.WriteElementString("Timestamps", Timestamps.ToString());
                 writer.WriteElementString("ActiveSkin", ActiveSkin);
-                writer.WriteElementString("LastUpdateTime", LastUpdateTime.ToBinary().ToString());
+                writer.WriteElementString("LastClientUpdateTime", LastClientUpdateTime.ToBinary().ToString());
+                writer.WriteElementString("LastGFXUpdateTime", LastGFXUpdateTime.ToBinary().ToString());
 
                 writer.WriteEndElement();
                 writer.WriteStartElement("ConnectionInfo");

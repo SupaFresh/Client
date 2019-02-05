@@ -54,6 +54,8 @@ namespace Client.Logic.Npc
             Npc npc = new Npc();
             npc.Name = name;
             npc.AttackSay = "";
+            npc.AttackSay2 = "";
+            npc.AttackSay3 = "";
             npc.Behavior = Enums.NpcBehavior.AttackOnSight;
             npc.ShinyChance = 0;
             for (int a = 0; a < MaxInfo.MAX_NPC_DROPS; a++)

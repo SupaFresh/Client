@@ -8,6 +8,10 @@ install:
   - nuget restore Client.sln
 build_script:
   - msbuild Client.sln /p:Configuration=Release
+  - xcopy %APPVEYOR_BUILD_FOLDER%\resources\Fonts %APPVEYOR_BUILD_FOLDER%\Client\bin\Release\Fonts /E /Y /I
+  - xcopy %APPVEYOR_BUILD_FOLDER%\resources\Help %APPVEYOR_BUILD_FOLDER%\Client\bin\Release\Help /E /Y /I
+  - xcopy %APPVEYOR_BUILD_FOLDER%\resources\Skins %APPVEYOR_BUILD_FOLDER%\Client\bin\Release\Skins /E /Y /I
+  - xcopy %APPVEYOR_BUILD_FOLDER%\resources\Script %APPVEYOR_BUILD_FOLDER%\Client\bin\Release\Script /E /Y /I
   - 7z a PMDShift.zip %APPVEYOR_BUILD_FOLDER%\Client\bin\Release\*
   - msbuild Client.sln /p:Configuration=Release;DisableUpdater=1
   - 7z a PMDShift-NoUpdater.zip %APPVEYOR_BUILD_FOLDER%\Client\bin\Release\*

@@ -408,6 +408,9 @@
     <Compile Include="Stories\Segments\MovePlayerSegment.cs" />
     <Compile Include="Stories\Segments\DeleteFNPCSegment.cs" />
     <Compile Include="Stories\Segments\GoToSegmentSegment.cs" />
+    <Compile Include="Stories\Segments\UnblockTileSegment.cs" />
+    <Compile Include="Stories\Segments\SpawnNPCSegment.cs" />
+    <Compile Include="Stories\Segments\PlayerSaySegment.cs" />
     <Compile Include="Stories\Segments\WarpFNPCSegment.cs" />
     <Compile Include="Stories\Segments\MoveFNPCSegment.cs" />
     <Compile Include="Stories\Segments\CreateFNPCSegment.cs" />
@@ -445,6 +448,7 @@
     <Compile Include="Updater\GitHubUpdater.cs" />
     <Compile Include="Updater\GitHubUpdateResult.cs" />
     <Compile Include="Updater\UpdateEngine.cs" />
+    <Compile Include="Updater\UpdatePackageDefinition.cs" />
     <Compile Include="Updater\Widgets\PackageButton.cs" />
     <Compile Include="Updater\Widgets\PackageButtonSelectedEventArgs.cs" />
     <Compile Include="Updater\Widgets\PackageScroller.cs" />
@@ -605,6 +609,6 @@
       <AssetFiles Include="..\resources\**\*" />
     </ItemGroup>
     <Copy SourceFiles="@(DllFiles)" DestinationFolder="$(OutputPath)%(RecursiveDir)" />
-    <Copy SourceFiles="@(AssetFiles)" DestinationFolder="$(OutputPath)%(RecursiveDir)" />
+    <Copy Condition=" '$(Configuration)' == 'Debug' " SourceFiles="@(AssetFiles)" DestinationFolder="$(OutputPath)%(RecursiveDir)" />
   </Target>
 </Project>

@@ -705,6 +705,84 @@ namespace Client.Logic.Graphics.Renderers.Maps
                         }
                     }
 
+                    // Draw Mask 3
+                    if (!mapAnim || (activeMap.Tile[x, y].M3Anim == 0 && mapAnim))
+                    {
+                        if (activeMap.Tile[x, y].Mask3 == 0)
+                        {
+                            // Do Nothing
+                        }
+                        else
+                        {
+                            DrawTile(destData, activeMap.Tile[x, y].Mask3Set, activeMap.Tile[x, y].Mask3, locX, locY, false);
+                        }
+                    }
+
+                    // Draw Mask 3 Anim
+                    if (mapAnim)
+                    {
+                        if (activeMap.Tile[x, y].M3Anim == 0)
+                        {
+                            // Do Nothing
+                        }
+                        else
+                        {
+                            DrawTile(destData, activeMap.Tile[x, y].M3AnimSet, activeMap.Tile[x, y].M3Anim, locX, locY, false);
+                        }
+                    }
+
+                    // Draw Mask 4
+                    if (!mapAnim || (activeMap.Tile[x, y].M4Anim == 0 && mapAnim))
+                    {
+                        if (activeMap.Tile[x, y].Mask4 == 0)
+                        {
+                            // Do Nothing
+                        }
+                        else
+                        {
+                            DrawTile(destData, activeMap.Tile[x, y].Mask4Set, activeMap.Tile[x, y].Mask4, locX, locY, false);
+                        }
+                    }
+
+                    // Draw Mask 4 Anim
+                    if (mapAnim)
+                    {
+                        if (activeMap.Tile[x, y].M4Anim == 0)
+                        {
+                            // Do Nothing
+                        }
+                        else
+                        {
+                            DrawTile(destData, activeMap.Tile[x, y].M4AnimSet, activeMap.Tile[x, y].M4Anim, locX, locY, false);
+                        }
+                    }
+
+                    // Draw Mask 5
+                    if (!mapAnim || (activeMap.Tile[x, y].M5Anim == 0 && mapAnim))
+                    {
+                        if (activeMap.Tile[x, y].Mask5 == 0)
+                        {
+                            // Do Nothing
+                        }
+                        else
+                        {
+                            DrawTile(destData, activeMap.Tile[x, y].Mask5Set, activeMap.Tile[x, y].Mask5, locX, locY, false);
+                        }
+                    }
+
+                    // Draw Mask 5 Anim
+                    if (mapAnim)
+                    {
+                        if (activeMap.Tile[x, y].M5Anim == 0)
+                        {
+                            // Do Nothing
+                        }
+                        else
+                        {
+                            DrawTile(destData, activeMap.Tile[x, y].M5AnimSet, activeMap.Tile[x, y].M5Anim, locX, locY, false);
+                        }
+                    }
+
                     // Draw Fringe
                     if (!mapAnim || (activeMap.Tile[x, y].FAnim == 0 && mapAnim))
                     {
@@ -754,6 +832,84 @@ namespace Client.Logic.Graphics.Renderers.Maps
                         else
                         {
                             DrawTile(destData, activeMap.Tile[x, y].F2AnimSet, activeMap.Tile[x, y].F2Anim, locX, locY, false);
+                        }
+                    }
+
+                    // Draw Fringe 3
+                    if (!mapAnim || (activeMap.Tile[x, y].F3Anim == 0 && mapAnim))
+                    {
+                        if (activeMap.Tile[x, y].Fringe3 == 0)
+                        {
+                            // Do Nothing
+                        }
+                        else
+                        {
+                            DrawTile(destData, activeMap.Tile[x, y].Fringe3Set, activeMap.Tile[x, y].Fringe3, locX, locY, false);
+                        }
+                    }
+
+                    // Draw Fringe 3 Anim
+                    if (mapAnim)
+                    {
+                        if (activeMap.Tile[x, y].F3Anim == 0)
+                        {
+                            // Do Nothing
+                        }
+                        else
+                        {
+                            DrawTile(destData, activeMap.Tile[x, y].F3AnimSet, activeMap.Tile[x, y].F3Anim, locX, locY, false);
+                        }
+                    }
+
+                    // Draw Fringe 4
+                    if (!mapAnim || (activeMap.Tile[x, y].F4Anim == 0 && mapAnim))
+                    {
+                        if (activeMap.Tile[x, y].Fringe4 == 0)
+                        {
+                            // Do Nothing
+                        }
+                        else
+                        {
+                            DrawTile(destData, activeMap.Tile[x, y].Fringe4Set, activeMap.Tile[x, y].Fringe4, locX, locY, false);
+                        }
+                    }
+
+                    // Draw Fringe 4 Anim
+                    if (mapAnim)
+                    {
+                        if (activeMap.Tile[x, y].F4Anim == 0)
+                        {
+                            // Do Nothing
+                        }
+                        else
+                        {
+                            DrawTile(destData, activeMap.Tile[x, y].F4AnimSet, activeMap.Tile[x, y].F4Anim, locX, locY, false);
+                        }
+                    }
+
+                    // Draw Fringe 5
+                    if (!mapAnim || (activeMap.Tile[x, y].F5Anim == 0 && mapAnim))
+                    {
+                        if (activeMap.Tile[x, y].Fringe5 == 0)
+                        {
+                            // Do Nothing
+                        }
+                        else
+                        {
+                            DrawTile(destData, activeMap.Tile[x, y].Fringe5Set, activeMap.Tile[x, y].Fringe5, locX, locY, false);
+                        }
+                    }
+
+                    // Draw Fringe 5 Anim
+                    if (mapAnim)
+                    {
+                        if (activeMap.Tile[x, y].F5Anim == 0)
+                        {
+                            // Do Nothing
+                        }
+                        else
+                        {
+                            DrawTile(destData, activeMap.Tile[x, y].F5AnimSet, activeMap.Tile[x, y].F5Anim, locX, locY, false);
                         }
                     }
 

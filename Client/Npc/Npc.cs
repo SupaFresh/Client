@@ -46,6 +46,18 @@ namespace Client.Logic.Npc
             set;
         }
 
+        public string AttackSay2
+        {
+            get;
+            set;
+        }
+
+        public string AttackSay3
+        {
+            get;
+            set;
+        }
+
         public Enums.NpcBehavior Behavior
         {
             get;
