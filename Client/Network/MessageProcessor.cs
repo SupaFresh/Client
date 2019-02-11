@@ -1490,9 +1490,11 @@ namespace Client.Logic.Network
                         }
                         PlayerManager.MyPlayer.TimeMultiplier = parse[22].ToInt();
 
-                        for (int i = 0; i < parse[24].ToInt(); i++)
+                        // 24 is money
+
+                        for (int i = 0; i < parse[25].ToInt(); i++)
                         {
-                            PlayerManager.MyPlayer.VolatileStatus.Add(parse[25 + i].ToInt());
+                            PlayerManager.MyPlayer.VolatileStatus.Add(parse[26 + i].ToInt());
                         }
 
                         // Make sure they aren't walking
