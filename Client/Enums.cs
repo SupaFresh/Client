@@ -541,7 +541,9 @@ namespace Client.Logic
         public enum MapEffect
         {
             None = 0,
-            Petals = 1
+            Petals = 1,
+            Bubbles = 2,
+            BigBubbles = 3
         }
 
         #endregion Enumerations
