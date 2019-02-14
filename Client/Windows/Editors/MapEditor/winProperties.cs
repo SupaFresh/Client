@@ -392,6 +392,7 @@ namespace Client.Logic.Windows.Editors.MapEditor
             cmbMapEffect.Items.Add(new ListBoxTextItem(Logic.Graphics.FontManager.LoadFont("PMDCP", 18), "None"));
             cmbMapEffect.Items.Add(new ListBoxTextItem(Logic.Graphics.FontManager.LoadFont("PMDCP", 18), "Petals"));
             cmbMapEffect.Items.Add(new ListBoxTextItem(Logic.Graphics.FontManager.LoadFont("PMDCP", 18), "Bubbles"));
+            cmbMapEffect.Items.Add(new ListBoxTextItem(Logic.Graphics.FontManager.LoadFont("PMDCP", 18), "Big Bubbles"));
             cmbMapEffect.SelectItem((int)properties.Effect);
 
             btnPlay = new Button("btnPlay");

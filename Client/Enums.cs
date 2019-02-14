@@ -542,7 +542,8 @@ namespace Client.Logic
         {
             None = 0,
             Petals = 1,
-            Bubbles = 2
+            Bubbles = 2,
+            BigBubbles = 3
         }
 
         #endregion Enumerations
