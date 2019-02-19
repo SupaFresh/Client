@@ -1415,24 +1415,25 @@ namespace Client.Logic.Network
                         player.Name = parse[2];
                         player.Sprite = parse[3].ToInt();
                         player.Form = parse[4].ToInt();
-                        player.Shiny = (Enums.Coloration)parse[5].ToInt();
-                        player.Sex = (Enums.Sex)parse[6].ToInt();
-                        player.MapID = parse[7];
-                        player.X = parse[8].ToInt();
-                        player.Y = parse[9].ToInt();
-                        player.Direction = (Enums.Direction)parse[10].ToInt();
-                        player.Access = (Enums.Rank)parse[11].ToInt();
-                        player.Hunted = parse[12].ToBool();
-                        player.Dead = parse[13].ToBool();
-                        player.Guild = parse[14];
-                        player.GuildAccess = (Enums.GuildRank)parse[15].ToInt();
-                        player.Status = parse[16];
-                        player.ScreenActive = parse[17].ToBool();
+                        // Skip over costume (parse[5])
+                        player.Shiny = (Enums.Coloration)parse[6].ToInt();
+                        player.Sex = (Enums.Sex)parse[7].ToInt();
+                        player.MapID = parse[8];
+                        player.X = parse[9].ToInt();
+                        player.Y = parse[10].ToInt();
+                        player.Direction = (Enums.Direction)parse[11].ToInt();
+                        player.Access = (Enums.Rank)parse[12].ToInt();
+                        player.Hunted = parse[13].ToBool();
+                        player.Dead = parse[14].ToBool();
+                        player.Guild = parse[15];
+                        player.GuildAccess = (Enums.GuildRank)parse[16].ToInt();
+                        player.Status = parse[17];
+                        player.ScreenActive = parse[18].ToBool();
                         //player.Confused = parse[14].ToBool();
-                        player.StatusAilment = (Enums.StatusAilment)parse[19].ToInt();
-                        for (int i = 0; i < parse[20].ToInt(); i++)
+                        player.StatusAilment = (Enums.StatusAilment)parse[20].ToInt();
+                        for (int i = 0; i < parse[21].ToInt(); i++)
                         {
-                            player.VolatileStatus.Add(parse[21 + i].ToInt());
+                            player.VolatileStatus.Add(parse[22 + i].ToInt());
                         }
                         // Make sure they aren't walking
                         player.MovementSpeed = Enums.MovementSpeed.Standing;
@@ -1459,23 +1460,24 @@ namespace Client.Logic.Network
                         PlayerManager.MyPlayer.Name = parse[2];
                         PlayerManager.MyPlayer.Sprite = parse[3].ToInt();
                         PlayerManager.MyPlayer.Form = parse[4].ToInt();
-                        PlayerManager.MyPlayer.Shiny = (Enums.Coloration)parse[5].ToInt();
-                        PlayerManager.MyPlayer.Sex = (Enums.Sex)parse[6].ToInt();
-                        PlayerManager.MyPlayer.MapID = parse[7];
-                        PlayerManager.MyPlayer.X = parse[8].ToInt();
-                        PlayerManager.MyPlayer.Y = parse[9].ToInt();
-                        PlayerManager.MyPlayer.Direction = (Enums.Direction)parse[10].ToInt();
-                        PlayerManager.MyPlayer.Access = (Enums.Rank)parse[11].ToInt();
-                        PlayerManager.MyPlayer.Hunted = parse[12].ToBool();
-                        PlayerManager.MyPlayer.Dead = parse[13].ToBool();
-                        PlayerManager.MyPlayer.Guild = parse[14];
-                        PlayerManager.MyPlayer.GuildAccess = (Enums.GuildRank)parse[15].ToInt();
-                        PlayerManager.MyPlayer.Solid = parse[16].ToBool();
-                        PlayerManager.MyPlayer.Status = parse[17];
-                        PlayerManager.MyPlayer.Confused = parse[18].ToBool();
-                        PlayerManager.MyPlayer.StatusAilment = (Enums.StatusAilment)parse[19].ToInt();
-                        PlayerManager.MyPlayer.SpeedLimit = (Enums.MovementSpeed)parse[20].ToInt();
-                        int mobility = parse[21].ToInt();
+                        // Skip over costumes (parse[5])
+                        PlayerManager.MyPlayer.Shiny = (Enums.Coloration)parse[6].ToInt();
+                        PlayerManager.MyPlayer.Sex = (Enums.Sex)parse[7].ToInt();
+                        PlayerManager.MyPlayer.MapID = parse[8];
+                        PlayerManager.MyPlayer.X = parse[9].ToInt();
+                        PlayerManager.MyPlayer.Y = parse[10].ToInt();
+                        PlayerManager.MyPlayer.Direction = (Enums.Direction)parse[11].ToInt();
+                        PlayerManager.MyPlayer.Access = (Enums.Rank)parse[12].ToInt();
+                        PlayerManager.MyPlayer.Hunted = parse[13].ToBool();
+                        PlayerManager.MyPlayer.Dead = parse[14].ToBool();
+                        PlayerManager.MyPlayer.Guild = parse[15];
+                        PlayerManager.MyPlayer.GuildAccess = (Enums.GuildRank)parse[16].ToInt();
+                        PlayerManager.MyPlayer.Solid = parse[17].ToBool();
+                        PlayerManager.MyPlayer.Status = parse[18];
+                        PlayerManager.MyPlayer.Confused = parse[19].ToBool();
+                        PlayerManager.MyPlayer.StatusAilment = (Enums.StatusAilment)parse[20].ToInt();
+                        PlayerManager.MyPlayer.SpeedLimit = (Enums.MovementSpeed)parse[21].ToInt();
+                        int mobility = parse[22].ToInt();
                         for (int i = 0; i < 16; i++)
                         {
                             if (mobility % 2 == 1)
@@ -1488,22 +1490,22 @@ namespace Client.Logic.Network
                             }
                             mobility /= 2;
                         }
-                        PlayerManager.MyPlayer.TimeMultiplier = parse[22].ToInt();
+                        PlayerManager.MyPlayer.TimeMultiplier = parse[23].ToInt();
 
-                        // 24 is money
+                        // 25 is money
 
-                        for (int i = 0; i < parse[25].ToInt(); i++)
+                        for (int i = 0; i < parse[26].ToInt(); i++)
                         {
-                            PlayerManager.MyPlayer.VolatileStatus.Add(parse[26 + i].ToInt());
+                            PlayerManager.MyPlayer.VolatileStatus.Add(parse[27 + i].ToInt());
                         }
 
                         // Make sure they aren't walking
                         PlayerManager.MyPlayer.MovementSpeed = Enums.MovementSpeed.Standing;
                         PlayerManager.MyPlayer.Offset = new Point();
 
-                        if (PlayerManager.MyPlayer.Darkness != parse[23].ToInt())
+                        if (PlayerManager.MyPlayer.Darkness != parse[24].ToInt())
                         {
-                            PlayerManager.MyPlayer.Darkness = parse[23].ToInt();
+                            PlayerManager.MyPlayer.Darkness = parse[24].ToInt();
                             if (PlayerManager.MyPlayer.Darkness > -2)
                             {
                                 Logic.Graphics.Renderers.Screen.ScreenRenderer.RenderOptions.SetDarkness(PlayerManager.MyPlayer.Darkness);
