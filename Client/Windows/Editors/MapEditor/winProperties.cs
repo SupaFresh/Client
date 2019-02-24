@@ -587,7 +587,7 @@ namespace Client.Logic.Windows.Editors.MapEditor
             //NumericUpDown nudNpcNum;
             nudNpcNum = new NumericUpDown("nudNpcNum");
             nudNpcNum.Minimum = 1;
-            nudNpcNum.Maximum = MaxInfo.MaxItems;
+            nudNpcNum.Maximum = MaxInfo.MaxNpcs;
             nudNpcNum.Size = new Size(80, 20);
             nudNpcNum.Location = new Point(65, 84);
             nudNpcNum.Font = Client.Logic.Graphics.FontManager.LoadFont("tahoma", 10);
