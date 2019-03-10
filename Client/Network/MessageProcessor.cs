@@ -3100,9 +3100,10 @@ namespace Client.Logic.Network
                         story.Name = parse[2];
                         story.Revision = parse[3].ToInt();
                         story.StoryStart = parse[4].ToInt();
-                        int segments = parse[5].ToInt();
+                        // Skip 5
+                        int segments = parse[6].ToInt();
 
-                        int n = 6;
+                        int n = 7;
                         for (int i = 0; i < segments; i++)
                         {
                             Stories.Segment segment = new Stories.Segment();
@@ -3129,9 +3130,10 @@ namespace Client.Logic.Network
                         story.Name = parse[2];
                         story.Revision = parse[3].ToInt();
                         story.StoryStart = parse[4].ToInt();
-                        int segments = parse[5].ToInt();
+                        // Skip 5
+                        int segments = parse[6].ToInt();
 
-                        int n = 6;
+                        int n = 7;
                         for (int i = 0; i < segments; i++)
                         {
                             Stories.Segment segment = new Stories.Segment();
